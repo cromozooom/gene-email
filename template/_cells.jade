@@ -1,0 +1,113 @@
+//- this is the table cell mixin
+//- optional can put width and padding
+mixin cell(cellWidth, xPadding, yPadding)
+	table.force-row(width="#{cellWidth}", border="0", cellpadding="0", cellspacing="0", align="left", style="width: #{cellWidth}px;")
+		tr
+			td.col(valign="top")
+				.colPadding(style="padding-left: #{xPadding}px; padding-right: #{xPadding}px; padding-top: #{yPadding}px; padding-bottom: #{yPadding}px;")
+					block
+block cellNumber
+//- cell = 2
+
+//- cell 1
+if cell == 1
+	- cellType = "withoutProd"
+	- cellType = "withProd"
+
+	case cellType
+
+		when "withoutProd"
+			tr
+				td.content(align="left")
+					.container-padding
+						block CellContent
+
+		when "withProd"
+			tr
+				td.content(align="left")
+					table.force-row(width="600", border="0", cellpadding="0", cellspacing="0", style="width: 600px;")
+						tr
+							td.cols-wrapper
+								+cell("600", "15", "15")
+									block CellContent
+
+//- cell 2 
+if cell == 2
+
+	tr
+		td.content(align="left")
+			table.force-row(width="600", border="0", cellpadding="0", cellspacing="0", style="width: 600px;")
+				tr
+					td.cols-wrapper
+						
+						<!--[if mso]><table border="0" width="600" cellpadding="0" cellspacing="0" style="width: 600px;"><tr><td width="300" style="width: 300px;" valign="top"><![endif]-->
+						
+						+cell("300", "15", "15")
+							block CellContent1
+							//- include ../template/prod
+									
+						
+						<!--[if mso]></td><td width="300" style="width: 300px;" valign="top"><![endif]-->
+
+						+cell("300", "15", "15")
+							block CellContent2
+							//- include ../template/prod
+
+						<!--[if mso]></td></tr></table><![endif]-->
+
+
+//- cell 3 
+if cell == 3
+
+	tr
+		td.content(align="left")
+			table.force-row(width="600", border="0", cellpadding="0", cellspacing="0", style="width: 600px;")
+				tr
+					td.cols-wrapper
+						
+						<!--[if mso]><table border="0" width="600" cellpadding="0" cellspacing="0" style="width: 600px;"><tr><td width="200" style="width: 200px;" valign="top"><![endif]-->
+						
+						+cell("200", "15", "15")
+							block CellContent1
+						
+						<!--[if mso]></td><td width="200" style="width: 200px;" valign="top"><![endif]-->
+
+						+cell("200", "15", "15")
+							block CellContent2
+
+						<!--[if mso]></td><td width="200" style="width: 200px;" valign="top"><![endif]-->
+
+						+cell("200", "15", "15")
+							block CellContent3
+						
+						<!--[if mso]></td></tr></table><![endif]-->
+
+//- cell 4 
+if cell == 4
+	tr
+		td.content(align="left")
+			table.force-row(width="600", border="0", cellpadding="0", cellspacing="0", style="width: 600px;")
+				tr
+					td.cols-wrapper
+						
+						<!--[if mso]><table border="0" width="600" cellpadding="0" cellspacing="0" style="width: 600px;"><tr><td width="150" style="width: 150px;" valign="top"><![endif]-->
+						
+						+cell("150", "15", "15")
+							block CellContent1
+						
+						<!--[if mso]></td><td width="150" style="width: 150px;" valign="top"><![endif]-->
+
+						+cell("150", "15", "15")
+							block CellContent2
+
+						<!--[if mso]></td><td width="150" style="width: 150px;" valign="top"><![endif]-->
+
+						+cell("150", "15", "15")
+							block CellContent3
+
+						<!--[if mso]></td><td width="150" style="width: 150px;" valign="top"><![endif]-->
+
+						+cell("150", "15", "15")
+							block CellContent4
+
+						<!--[if mso]></td></tr></table><![endif]-->

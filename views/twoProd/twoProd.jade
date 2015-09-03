@@ -1,0 +1,14 @@
+extends ../../template/_cells
+
+block cellNumber
+	- cell = 			2
+
+block CellContent1
+	- prod = 			1
+	block prodInfo
+	include ../../template/_prod
+
+block CellContent2
+	- prod = 			2
+	block prodInfo
+	include ../../template/_prod
