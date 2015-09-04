@@ -1,14 +1,20 @@
 extends ../../template/_cells
 
-block cellNumber
-	- cell = 			2
+block cellAtribute
+	- cell = 			"twoEqual"
+	- template = 		"twoProd"
+	include ../../config/config
 
-block CellContent1
+block cellContent1
+
 	- prod = 			1
 	block prodInfo
+	p #{template}
 	include ../../template/_prod
 
-block CellContent2
+block cellContent2
+
 	- prod = 			2
+	p #{template}
 	block prodInfo
 	include ../../template/_prod

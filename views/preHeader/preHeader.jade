@@ -1,0 +1,19 @@
+extends ../../template/_cells
+
+block cellAtribute
+	- cell = "twoEqualNotResponsive"
+	- template = "preHeader"
+	include ../../config/config
+
+block content
+	p #{rowBackgroundColor} #{template}
+	+normalCell("70%", "0", "10", "left")
+		span(style="#{font11} #{fontSans} color:#{fontColor}; padding-left: 15px; padding-right: 15px; padding-top: 10px; padding-bottom: 3px")
+					| #{previewCopy}
+	+normalCell("30%", "0", "10", "right")
+		span(style="#{font11} #{fontSans} color:#{fontColor}; padding-left: 15px; padding-right: 15px; padding-top: 10px; padding-bottom: 3px")
+				| #{onlineVersionCopy} 
+				nobr
+					a(st-content="viewonline" href="#{viewOnlineLink}#{prefixTraking}#{data}#{lang}#{trakingSource}" style="#{decNone} color:#{linkColor};" target="_blank" )
+						span(style="#{decNone} color:#{linkColor};")
+							| #{viewOnline}
