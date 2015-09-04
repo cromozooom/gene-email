@@ -1,0 +1,103 @@
+//- Grey scale
+- colorWhiteD				= "#a1a1a1"
+- colorWhiteC				= "#b3b3b3"
+- colorWhiteB				= "#c7c7c7"
+- colorWhiteA				= "#dedede"
+- colorWhite				= "#f7f7f7"
+- colorGrey					= "#767676"
+- colorBlack				= "#000000"
+- colorBlackA				= "#191919"
+- colorBlackB				= "#303030"
+- colorBlackC				= "#444444"
+- colorBlackD				= "#565656"
+//- Primary
+- colorPrimaryLightD		= "#f4f2f8"
+- colorPrimaryLightC		= "#e9e4f0"
+- colorPrimaryLightB		= "#d2c9e0"
+- colorPrimaryLightA		= "#a592c1"
+- colorPrimary				= "#4a2583"
+- colorPrimaryDarkA			= "#2c164f"
+- colorPrimaryDarkB			= "#1a0d2f"
+- colorPrimaryDarkC			= "#10081c"
+- colorPrimaryDarkD			= "#0a0511"
+//- Secondary
+- colorSecondaryLightD		= "#faf9f6"
+- colorSecondaryLightC		= "#f5f3ec"
+- colorSecondaryLightB		= "#ebe6d8"
+- colorSecondaryLightA		= "#d7cdb1"
+- colorSecondary			= "#ae9a63"
+- colorSecondaryDarkA		= "#685c3b"
+- colorSecondaryDarkB		= "#3e3723"
+- colorSecondaryDarkC		= "#3e3723"
+- colorSecondaryDarkD		= "#16140d"
+//- Tertiary red
+- colorTertiaryLightD		= "#fef1f1"
+- colorTertiaryLightC		= "#fce3e2"
+- colorTertiaryLightB		= "#f9c6c4"
+- colorTertiaryLightA		= "#f28d89"
+- colorTertiary				= "#e41b13"
+- colorTertiaryDarkA		= "#89100b"
+- colorTertiaryDarkB		= "#520a07"
+- colorTertiaryDarkC		= "#310604"
+- colorTertiaryDarkD		= "#1d0402"
+//- Fourth
+- colorFourthLightD			= "#fef1f1"
+- colorFourthLightC			= "#fce3e2"
+- colorFourthLightB			= "#f9c6c4"
+- colorFourthLightA			= "#f28d89"
+- colorFourth				= "#e41b13"
+- colorFourthDarkA			= "#89100b"
+- colorFourthDarkB			= "#520a07"
+- colorFourthDarkC			= "#310604"
+- colorFourthDarkD			= "#1d0402"
+
+- colorDebug				= "#b5ff00"
+- colorBgDebug				= "#2b2d29"
+
+
+
+if template == "containerMail"
+	- rowBackgroundColor	= colorWhiteA
+
+if template == "preHeader"
+	- linkColor 			= colorSecondary
+	- fontColor 			= colorWhiteC
+
+	- rowBackgroundColor	= colorWhiteA
+
+if template == "twoProd"
+	- linkColor 			= colorPrimaryLightA
+	- fontColor 			= colorPrimary
+
+	- rowBackgroundColor	= colorWhite
+
+	// - // cta attribute
+	// - cta = "button"
+	// - buttonType = 1
+
+	- arcsize = "5px"
+	- radiusSize = "5px"
+
+	- ctaColor = colorWhite
+	- ctaBgColor = colorSecondary
+
+	- height = "40px"
+	- lineheight = "40px"
+
+	- fontFam = fontSans
+	- fontSize =  font15
+
+	- buttonWidth = "150px"
+
+if template == "threeProd"
+	- linkColor 			= colorPrimaryLightA
+	- fontColor 			= colorPrimary
+
+	- rowBackgroundColor	= colorWhite
+
+if template == "heroImage"
+	- linkColor 			= colorPrimaryLightA
+	- fontColor 			= colorPrimary
+
+	- rowBackgroundColor	= colorWhite
+

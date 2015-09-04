@@ -51,21 +51,33 @@
 - colorFourthDarkC			= "#310604"
 - colorFourthDarkD			= "#1d0402"
 
+- colorDebug				= "#b5ff00"
+- colorBgDebug				= "#2b2d29"
+
+if template == "containerMail"
+	- rowBackgroundColor	= colorWhiteA
 
 if template == "preHeader"
-		- linkColor 			= colorSecondary
-		- fontColor 			= colorWhiteC
+	- linkColor 			= colorSecondary
+	- fontColor 			= colorWhiteC
 
-		- rowBackgroundColor	= colorSecondary
+	- rowBackgroundColor	= colorWhiteA
 
 if template == "twoProd"
-		- linkColor 			= colorPrimaryLightA
-		- fontColor 			= colorPrimary
+	- linkColor 			= colorPrimaryLightA
+	- fontColor 			= colorPrimary
 
-		- rowBackgroundColor	= colorPrimary
+	- rowBackgroundColor	= colorWhite
 
 if template == "threeProd"
-		- linkColor 			= colorPrimaryLightA
-		- fontColor 			= colorPrimary
+	- linkColor 			= colorPrimaryLightA
+	- fontColor 			= colorPrimary
 
-		- rowBackgroundColor	= colorSecondary
+	- rowBackgroundColor	= colorWhite
+
+if template == "heroImage"
+	- linkColor 			= colorPrimaryLightA
+	- fontColor 			= colorPrimary
+
+	- rowBackgroundColor	= colorWhite
+

@@ -8,36 +8,47 @@ mixin responsiveCell(cellWidth, xPadding, yPadding)
 					block
 
 mixin normalCell(cellWidth, xPadding, yPadding, align)
-	td.col(bgcolor="#{rowBackgroundColor}" valign="top" align="#{align}" width="#{cellWidth}" style="width: #{cellWidth}; padding-left: #{xPadding}px; padding-right: #{xPadding}px; padding-top: #{yPadding}px; padding-bottom: #{yPadding}px;")
+	td(bgcolor="#{rowBackgroundColor}" valign="top" align="#{align}" width="#{cellWidth}" style="width: #{cellWidth}; padding-left: #{xPadding}px; padding-right: #{xPadding}px; padding-top: #{yPadding}px; padding-bottom: #{yPadding}px;")
 		block
 
 
 
+//- uset for define template what you chuse
 block cellAtribute
-//- cell = 2
 
+//- quarantine
 //- cell 1
-if cell == "one"
-	- cellType = "withoutProd"
-	- cellType = "withProd"
+	if cell == "one"
+		- cellType = "withoutProd"
+		- cellType = "withProd"
 
-	case cellType
+		case cellType
 
-		when "withoutProd"
-			tr
-				td.content(align="left")
-					.container-padding
-						block cellContent
+			when "withoutProd"
+				tr
+					td.content(align="left")
+						.container-padding
+							block cellContent
 
-		when "withProd"
-			tr
-				td.content(align="left")
-					table.force-row(width="600", border="0", cellpadding="0", cellspacing="0", style="width: 600px;")
-						tr
-							td.cols-wrapper
-								+responsiveCell("600", "15", "15")
-									block cellContent
+			when "withProd"
+				tr
+					td.content(align="left")
+						table.force-row(width="600", border="0", cellpadding="0", cellspacing="0", style="width: 600px;")
+							tr
+								td.cols-wrapper
+									+responsiveCell("600", "15", "15")
+										block cellContent
+//- cell 1
+if cell == "fullWidth"
 
+	tr
+		td.content(align="left")
+			table( width="100%", border="0", cellpadding="0", cellspacing="0", style="width: 100%;")
+				tr
+					block fullWidth
+					//- put some cells
+						+normalCell("300", "5", "5", "left")
+							block fullWidth
 //- cell 2
 if cell == "twoEqual"
 
@@ -67,10 +78,10 @@ if cell == "twoEqualNotResponsive"
 
 	tr
 		td.content(align="left")
-			table( width="600", border="0", cellpadding="0", cellspacing="0", style="width: 600px;")
+			table( width="100%", border="0", cellpadding="0", cellspacing="0", style="width: 100%;")
 				tr
-					block content
-					// put some cells
+					block cellContent1
+					//- put some cells
 						+normalCell("300", "5", "5", "left")
 							block cellContent1
 						+normalCell("300", "5", "5", "right")

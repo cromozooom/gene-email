@@ -1,5 +1,11 @@
 include utils
 
+include path
+
 if site == "default"
 	include default/colorTemplate
 	include default/content
+
+if site == "fiorentina"
+	include fiorentina/colorTemplate
+	include fiorentina/content

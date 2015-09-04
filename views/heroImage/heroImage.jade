@@ -1,0 +1,27 @@
+extends ../../template/_cells
+
+block cellAtribute
+	- cell = "fullWidth"
+	- template = "heroImage"
+	block heroImageContent
+
+	include ../../config/config
+
+	//- editor content
+
+block fullWidth
+	if debug
+		p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;")
+			| template= #{template}
+			br
+			| heroImageSrc = #{heroImageSrc}
+			br
+			| link = #{linkCTA}
+
+	//- td(bgcolor="#{rowBackgroundColor}" valign="top" align="center" width="100%" style="width: 100%; padding-left: 0px; padding-right: 0px; padding-top: 0px; padding-bottom: 0px;")
+
+	+normalCell("100%", "0", "0", "center")
+		a(href="#{linkCTA}#{prefixTraking}#{data}#{lang}_#{trakingSource}#{sufixTraking}" target="_blank")
+			img.image.pattern(src="#{templateImagesPath}#{heroImageSrc}_#{lang}.jpg" alt="#{heroImageheader}", width="100%", height="", style="display: block; border: 0; color:#{fontColor};#{fontSans}#{font30}#{center}")
+
+

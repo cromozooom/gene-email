@@ -9,12 +9,14 @@ block cellContent1
 
 	- prod = 			1
 	block prodInfo
-	p #{template}
+	if debug
+		p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;") #{template}
 	include ../../template/_prod
 
 block cellContent2
 
 	- prod = 			2
-	p #{template}
+	if debug
+		p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;") #{template}
 	block prodInfo
 	include ../../template/_prod

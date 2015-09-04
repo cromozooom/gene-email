@@ -1,0 +1,49 @@
+include ../config/config
+block mixin
+
+block ctaAtribute
+
+		//- #{lang}
+		//- #{idProd}
+		//- #{linkCTA}
+		//- !{ctaCopy}
+		//- #{data}
+		//- #{prefixTraking}
+		//- #{trakingSource}
+		//- #{sufixTraking}
+		//- #{prodPrice}
+		//- #{align}
+
+
+block buttonAtribute
+	- align = "left"
+
+table(width="100%" border="0" cellspacing="0" cellpadding="0" align="#{align}")
+	tr
+		td(align="#{align}")
+			//- if debug
+				p #{prodTitle}
+			div
+				//[if mso]
+					<v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="#{linkCTA}#{prefixTraking}#{data}#{lang}_#{trakingSource}#{idProd}#{sufixTraking}" style="height:#{height}; v-text-anchor:middle; width:#{buttonWidth};" arcsize="#{arcsize}" strokecolor="#{ctaBgColor}" fillcolor="#{ctaBgColor}">
+					<w:anchorlock/>
+					<center style="color:#{ctaColor};#{fontFam}#{fontSize15}">!{ctaCopy} &rarr;</center>
+					</v:roundrect>
+					<![endif]
+				a(href="#{linkCTA}#{prefixTraking}#{data}#{lang}_#{trakingSource}#{idProd}_Button#{sufixTraking}" style="background-color:#{ctaBgColor}; border:1px solid #{ctaBgColor}; border-radius:#{radiusSize}; color:#{ctaColor}; display:inline-block;#{fontFam}#{fontSize} line-height:#{lineheight}; text-align:center; text-decoration:none; width:#{buttonWidth};-webkit-text-size-adjust:none;mso-hide:all;")
+
+					//- simple CTA (buy now or Acquista)
+					//- -----------------------------------------------------------------
+					if buttonType == 1
+						strong
+							//- see arrow on this page http://character-code.com/arrows-html-codes.php
+							| !{ctaCopy} &raquo;
+					//- CTA with price (buy at {price} or Acquista a {price})
+					//- -----------------------------------------------------------------
+					if buttonType == 2
+						if lang == "en"
+							span
+								| !{ctaCopy} at &euro;#{prodPrice}
+						if lang == "it"
+							span
+								| !{ctaCopy} a &euro;#{prodPrice}

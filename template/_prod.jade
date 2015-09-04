@@ -5,13 +5,13 @@
 //- prodNormalPrice 		= "23"
 
 block view
-	//- template 				= "prodTemplate"
-	//- include ../config/config
-
-	table.img-wrapper(border="0", cellpadding="0", cellspacing="0")
+	if debug
+		// p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;")
+			| #{cta}, #{arcsize},#{cta},#{buttonType},#{align},#{arcsize},#{ctaColor},#{ctaBgColor},#{height},#{lineheight},#{fontFam},
+			| #{fontSize},#{radiusSize}, #{buttonWidth}
+table.img-wrapper(border="0", cellpadding="0", cellspacing="0")
 		tr
 			td
-				//- p #{template}
 				a(href="#{prodLink}")
 					//- img.image(src="#{prodImage}", border="0", alt="#{prodDescription}", width="168", height="110", hspace="0", vspace="0", style="max-width:100%; ")
 					img.image.pattern(src="#{prodImage}" alt="#{prodTitle}", width="100%", height="", style="display: block; border: 0;")
@@ -25,9 +25,13 @@ block view
 			td.col-copy(style="#{fontSans}#{font12} padding-top: 4px; color: #{fontColor}") #{prodDescription}
 		tr
 			td
-				p 
+				p(style="#{fontSans}#{font12} padding-top: 4px; color: #{fontColor}")
 					if prodPrice
 						| #{prodPrice} | 
+
 					if prodNormalPrice
 						| #{prodNormalPrice}
+		tr
+			td
+				include _cta
 
