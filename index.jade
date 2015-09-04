@@ -1,0 +1,29 @@
+extends views/containerMail/containerMail
+
+
+block generalData
+	- debug			= false
+
+	//- option: default, fiorentina
+	- site 			= "fiorentina"
+	- lang 			= "it"
+	- data 			= "11-8"
+
+	if lang == "en"
+		- previewCopy 	= "some small message here"
+		- emailTitle	= "your email title"
+
+	if lang == "it"
+		- previewCopy 	= "qualcozaina di cortto qui"
+		- emailTitle	= "your email title"
+
+	include config/config
+
+
+block append emailContent
+	include views/heroImage
+	include views/twoProd
+	include views/threeProd
+
+//- footer
+// include template/footer
