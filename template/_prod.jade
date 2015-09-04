@@ -4,34 +4,69 @@
 //- prodPrice 			= "23"
 //- prodNormalPrice 		= "23"
 
+include ../config/config
+
 block view
 	if debug
-		// p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;")
-			| #{cta}, #{arcsize},#{cta},#{buttonType},#{align},#{arcsize},#{ctaColor},#{ctaBgColor},#{height},#{lineheight},#{fontFam},
-			| #{fontSize},#{radiusSize}, #{buttonWidth}
+		p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;")
+			| decThrough= #{decThrough}
+
 table.img-wrapper(border="0", cellpadding="0", cellspacing="0")
+		+ySpace(20, 1)
 		tr
 			td
 				a(href="#{prodLink}")
 					//- img.image(src="#{prodImage}", border="0", alt="#{prodDescription}", width="168", height="110", hspace="0", vspace="0", style="max-width:100%; ")
 					img.image.pattern(src="#{prodImage}" alt="#{prodTitle}", width="100%", height="", style="display: block; border: 0;")
-				br
+		+ySpace(10, 1)		
 	table(border="0", cellpadding="0", cellspacing="0")
 		tr
 			td.subtitle
-				a(href="#{prodLink}" style="#{fontSans}#{font14}#{decNone}#{bold} color: #{linkColor}" )
-					span(style="#{fontSans}#{font14}#{decNone}#{bold} color: #{linkColor}") #{prodTitle}
+				a(href="#{prodLink}" style="#{fontSans}#{prodTitleFontSize}#{decNone}#{bold} color: #{linkColor}" )
+					span(style="#{fontSans}#{prodTitleFontSize}#{decNone}#{bold} color: #{linkColor}") #{prodTitle}
 		//- tr
 			td.col-copy(style="#{fontSans}#{font12} padding-top: 4px; color: #{fontColor}") #{prodDescription}
 		tr
 			td
-				p(style="#{fontSans}#{font12} padding-top: 4px; color: #{fontColor}")
-					if prodPrice
-						| #{prodPrice} | 
+				if prodNormalPrice
+					.subtitle(style="#{left}")
+						table(cellpadding="0" cellspacing="0" border="0" width="#{buttonWidth}")
+							+ySpace(5, 2)
+							tr
+								td(style="#{left} border-top: solid 5px #{rowBackgroundColor}; border-bottom: solid 5px #{rowBackgroundColor};")
+									span(style="#{fontSizeProdNormalPrice}#{fontSans}#{decThrough} color:#{prodNormalPriceColor}")
+										| #{prodNormalPrice}
+										sup(style="#{font10}#{fontSans} #{normal} #{decNone} color: #{prodNormalPriceColor}") &euro;
+								td(style="#{center} border-left-width: 1px; border-left-style: solid; border-left-color: #{verticalLineColor}; color:#{prodPriceColor}")
+									strong(style="#{fontSizeProdPrice}#{fontSans}")
+										| #{prodPrice}
+										sup(style="#{font10}#{fontSans} #{normal}") &euro;
+							+ySpace(5, 2)
+							tr
+								td(colspan="2")
+									include _cta
 
+				else
+					.subtitle(style="#{fontSizeProdPrice}")
+						table(cellpadding="0" cellspacing="0" border="0" width="#{buttonWidth}")
+							if buttonType == 2
+								tr
+									td(style="padding-top: 10px")
+										include _cta
+							if buttonType == 1
+								tr
+									td(style="#{left} border-top: solid 5px #{rowBackgroundColor}; border-bottom: solid 5px #{rowBackgroundColor}; border-left-width: 0px; border-left-style: solid; border-left-color: #{prodNormalPriceColor}; color:#{prodPriceColor}")
+										strong(style="#{fontSizeProdPrice}")
+											| #{prodPrice}
+											sup(style="#{font10} #{normal}") &euro;
+								+ySpace(5, 1)
+								tr
+									td(style="border-top: solid 5px #{rowBackgroundColor};")
+										include _cta
+
+				//-  p(style="#{fontSans}#{font12} padding-top: 4px; color: #{fontColor}")
 					if prodNormalPrice
-						| #{prodNormalPrice}
-		tr
-			td
-				include _cta
+						| #{prodPrice} | #{prodNormalPrice}
+					else
+						| #{prodPrice}
 

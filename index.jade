@@ -2,11 +2,11 @@ extends views/containerMail/containerMail
 
 
 block generalData
-	- debug			= false
+	//- debug			= true
 
 	//- option: default, fiorentina
 	- site 			= "fiorentina"
-	- lang 			= "it"
+	- lang 			= "en"
 	- data 			= "11-8"
 
 	if lang == "en"
@@ -23,7 +23,9 @@ block generalData
 block append emailContent
 	include views/heroImage
 	include views/twoProd
+	include views/twoProdTest
 	include views/threeProd
+	include views/fourProd
 
 //- footer
 // include template/footer

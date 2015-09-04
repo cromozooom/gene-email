@@ -57,64 +57,94 @@
 
 
 if template == "containerMail"
-	- rowBackgroundColor	= colorWhiteA
+	- rowBackgroundColor		= colorWhiteA
 
 if template == "preHeader"
-	- linkColor 			= colorSecondary
-	- fontColor 			= colorWhiteC
+	- linkColor 				= colorSecondary
+	- fontColor 				= colorWhiteC
 
-	- rowBackgroundColor	= colorWhiteA
+	- rowBackgroundColor		= colorWhiteA
 
 if template == "twoProd"
 	// universal collor
-	- linkColor 			= colorPrimaryLightA
-	- fontColor 			= colorPrimary
+	- linkColor 				= colorPrimary
+	- fontColor 				= colorPrimary
 
-	- rowBackgroundColor	= colorWhite
+	- rowBackgroundColor		= colorWhite
 
+	- prodTitleFontSize			= font14
+	- prodNormalPriceColor 		= colorWhiteD
+	- fontSizeProdNormalPrice	= font15 
+	- prodPriceColor 			= colorWhiteD
+	- fontSizeProdPrice 		= font15
+	- verticalLineColor			= colorWhiteA
 	// - // cta attribute
-	// - cta = "button"
-	// - buttonType = 1
 
-	- arcsize = "5px"
-	- radiusSize = "5px"
+	- arcsize = "3px"
+	- radiusSize = "3px"
 
 	- ctaColor = colorWhite
-	- ctaBgColor = colorSecondary
+	- ctaBgColor = colorTertiary
 
-	- height = "40px"
-	- lineheight = "40px"
+	- height = "35px"
+	- lineheight = "35px"
 
 	- fontFam = fontSans
 	- fontSize =  font15
 
-	- buttonWidth = "150px"
-
 if template == "threeProd"
 	// universal collor
+	- linkColor 				= colorPrimary
+	- fontColor 				= colorPrimary
 
-	- linkColor 			= colorPrimaryLightA
-	- fontColor 			= colorPrimary
+	- rowBackgroundColor		= colorWhite
 
-	- rowBackgroundColor	= colorWhite
-
+	- prodTitleFontSize			= font13
+	- prodNormalPriceColor 		= colorWhiteD
+	- fontSizeProdNormalPrice	= font12 
+	- prodPriceColor 			= colorWhiteD
+	- fontSizeProdPrice 		= font15
+	- verticalLineColor			= colorWhiteA
 	// - // cta attribute
-	// - cta = "button"
-	// - buttonType = 1
 
-	- arcsize = "5px"
-	- radiusSize = "5px"
+	- arcsize = "3px"
+	- radiusSize = "3px"
 
 	- ctaColor = colorWhite
-	- ctaBgColor = colorSecondary
+	- ctaBgColor = colorTertiary
 
-	- height = "30px"
-	- lineheight = "30px"
+	- height = "25px"
+	- lineheight = "25px"
 
 	- fontFam = fontSans
 	- fontSize =  font12
 
-	- buttonWidth = "120px"
+if template == "fourProd"
+	// universal collor
+	- linkColor 				= colorPrimary
+	- fontColor 				= colorPrimary
+
+	- rowBackgroundColor		= colorWhite
+
+	- prodTitleFontSize			= font11
+	- prodNormalPriceColor 		= colorWhiteD
+	- fontSizeProdNormalPrice	= font12 
+	- prodPriceColor 			= colorWhiteD
+	- fontSizeProdPrice 		= font14
+	- verticalLineColor			= colorWhiteA
+	// - // cta attribute
+
+	- arcsize = "3px"
+	- radiusSize = "3px"
+
+	- ctaColor = colorWhite
+	- ctaBgColor = colorTertiary
+
+	- height = "25px"
+	- lineheight = "25px"
+
+	- fontFam = fontSans
+	- fontSize =  font12
 
 if template == "heroImage"
 	- linkColor 			= colorPrimaryLightA

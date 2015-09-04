@@ -1,4 +1,5 @@
 //- fiont size
+- font1					= "font-size: 1px; line-height: 1px;"
 - font5					= "font-size: 5px; line-height: 5px;"
 - font6					= "font-size: 6px; line-height: 6px;"
 - font7					= "font-size: 7px; line-height: 7px;"
@@ -60,3 +61,8 @@
 //- font
 - fontSans 				= "font-family: Helvetica, Arial, sans-serif;"
 - fontSerif 			= "font-family: Georgia, sans-serif;"
+
+mixin ySpace(height, colspan)
+	tr
+		td(height="#{height}px" colspan="#{colspan}" style="#{font1}")
+			| &nbsp

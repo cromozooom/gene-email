@@ -1,7 +1,7 @@
-extends threeProd/threeProd
+extends fourProd/fourProd
 
 block prodInfo
-	- trakingSource 				= "twoProdTraking3"
+	- trakingSource 				= "twoProdTraking4"
 
 	if lang == "en"
 		- ctaCopy = "Buy"
@@ -25,6 +25,15 @@ block prodInfo
 			//- prodDescription		// "prod despription 02"
 
 		if prod == 3
+			- prodLink				= "http://www.laziostylestore.com/en/ss-lazio-sky-blue-black-115-years-tracktop.html"
+			- prodImage				= "http://lazio.dunebuggysrl.netdna-cdn.com/media/catalog/product/cache/2/small_image/350x/17f82f742ffe127f42dca9de82fb58b1/l/z/lz14145.jpg"
+			- prodTitle 			= "Sky Blue/Black 115 Years Tracktop"
+			- prodPrice 			= "72.00"
+			- prodNormalPrice 		= "80.00"
+			- idProd				= "lz14145"
+			//- prodDescription		// "prod despription 03"
+		
+		if prod == 4
 			- prodLink				= "http://www.laziostylestore.com/en/ss-lazio-sky-blue-black-115-years-tracktop.html"
 			- prodImage				= "http://lazio.dunebuggysrl.netdna-cdn.com/media/catalog/product/cache/2/small_image/350x/17f82f742ffe127f42dca9de82fb58b1/l/z/lz14145.jpg"
 			- prodTitle 			= "Sky Blue/Black 115 Years Tracktop"
@@ -62,10 +71,20 @@ block prodInfo
 			- prodNormalPrice 		= "80.00"
 			- idProd				= "lz14333"
 			//- prodDescription		// "prod despription 03"
+
+		if prod == 4
+			- prodLink				= "http://www.laziostylestore.com/en/ss-lazio-sky-blue-white-115-years-polo.html"
+			- prodImage				= "http://lazio.dunebuggysrl.netdna-cdn.com/media/catalog/product/cache/2/small_image/350x/17f82f742ffe127f42dca9de82fb58b1/l/z/lz14121.jpg"
+			- prodTitle 			= "Wristbands 2014/15"
+			- prodPrice 			= "45.00"
+			- prodNormalPrice 		= "80.00"
+			- idProd				= "lz14291"
+			//- prodDescription		// "prod despription 01"
+
 	//- additional option
 	append append buttonAtribute
 		- cta = "button"
 		- buttonType = 1
-		- buttonWidth = "110px"
+		- buttonWidth = "100px"
 
 	

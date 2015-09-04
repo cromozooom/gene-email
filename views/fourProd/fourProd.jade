@@ -1,0 +1,38 @@
+extends ../../template/_cells
+
+block cellAtribute
+	- cell = "fourEqual"
+	- template = 		"fourEqual"
+	include ../../config/config
+
+block cellContent1
+
+	- prod 						= 1
+	block prodInfo
+	if debug
+		p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;")  #{template}
+	include ../../template/_prod
+
+block cellContent2
+
+	- prod 						= 2
+	block prodInfo
+	if debug
+		p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;")  #{template}
+	include ../../template/_prod
+
+block cellContent3
+
+	- prod 						= 3
+	block prodInfo
+	if debug
+		p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;")  #{template}
+	include ../../template/_prod
+
+block cellContent4
+
+	- prod 						= 4
+	block prodInfo
+	if debug
+		p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;")  #{template}
+	include ../../template/_prod
