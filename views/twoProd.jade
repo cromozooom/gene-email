@@ -1,7 +1,7 @@
 extends twoProd/twoProd
 
 block prodInfo
-	- trakingSource 				= "twoProdTraking2"
+	- trakingSource 				= "twoProdTraking"
 
 	if lang == "en"
 		- ctaCopy = "Buy"
@@ -49,6 +49,9 @@ block prodInfo
 	//- additional option
 	append append buttonAtribute
 		- cta = "button"
+		//-button type option:
+		//- 1. is  only CTA and ARROW
+		//- 2. is  CTA + "prodPrice" and ARROW
 		- buttonType = 2
 		- buttonWidth = "150px"
 
