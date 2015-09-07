@@ -1,0 +1,48 @@
+extends heroImagePlus/heroImagePlus
+
+block append heroImagePlusContent
+
+	- trakingSource 					= "HeroImagePlus1"
+
+	if lang == "en"
+		//- Copy for the first row (txt)
+		- rowHeaderTitle 				= "SERIE A IS BACK"
+
+		// Copy for the second row (txt) - this is optional if you dont want to use it put False instead
+		- rowHeaderRow					= "Tornando alla serie A, prezzi bloccati e un finanziamento a tasso zero"
+		// Copy for CTA (txt)
+		- ctaCopy 						= "BUY NOW"
+		//- this is the link for all the block !!!
+		- linkCTA						= "http://www.solopx.com"
+
+	if lang == "it"
+		- rowHeaderTitle 				= "SERIE A IS BACK"
+		- rowHeaderRow					= "Tornando alla serie A, prezzi bloccati e un finanziamento a tasso zero"
+		- linkCTA						= "http://www.solopx.com"
+		- ctaCopy  						= "ACQUISTA ORA"
+
+	//- 	ADITIONAL OPTION:
+	//-
+	//- 	1. Image to replace the header and CTA (call to action)
+	//-
+	//- 	The first row (image row) - set to "false" if you don't want to use image
+	//- 	optional you can put false if you dont't need to use images
+	- rowHeaderTitleImage				= "header"
+	- rowHeaderTitleImage				= false
+
+	// this is the CTA image (image) - set to "false" if you don't want to use image
+	//- rowHeaderCTAImage				= "cta01"
+	//- rowHeaderCTAImage					= false
+
+	//- 2. colorScheme
+	//-
+	//- available: dark and light
+	- colorScheme 						= "dark"
+
+
+	block cutomize
+		//- font size can be: format "font1" (1-60)
+		- rowHeaderTitleSize 				= font60
+		- rowFontSize 						= font16
+		- rowHeaderTitlepadding				= "20px 0px 10px 0px"
+		- buttonWidth 						= "150px"

@@ -8,15 +8,17 @@ block cellAtribute
 block cellContent1
 
 	- prod = 			1
-	block prodInfo
-	if debug
-		p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;") #{template}
-	include ../../template/_prod
+	+responsiveCell("300", "15", "15")
+		block prodInfo
+		if debug
+			p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;") #{template}
+		include ../../template/_prod
 
 block cellContent2
 
 	- prod = 			2
-	if debug
-		p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;") #{template}
-	block prodInfo
-	include ../../template/_prod
+	+responsiveCell("300", "15", "15")
+		if debug
+			p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;") #{template}
+		block prodInfo
+		include ../../template/_prod

@@ -1,0 +1,28 @@
+extends ../../template/_cells
+
+block cellAtribute
+	- cell 				= "fullWidth"
+	- template 			= "nav"
+	- trakingSource 	= "nav"
+	include ../../config/config
+	//- editor content
+
+block fullWidth
+	//- inspired from http://responsiveemailpatterns.com/patterns/navigation/top-links.html
+	tr(class="mobile-hidden")
+		td(height="4" width="600" style="background-color: #{navBorderTop};")
+	tr(class="mobile-hidden")
+		td.main_nav(width="600" style="padding: 0px 0px 0px 20px; background-color: #{navBgcolor};")
+			table(cellpadding="0" cellspacing="0" width="100%" style="background-color: #{navBgcolor};")
+				tr
+					each val in navListLink
+						if val.lastItemNav
+							td(align="center" style="#{padding}#{fontSize} #{decNone} #{fontSans} background-color: #{navLinkSpecialBgColor};")
+								a(href="#{val.navItemLink}#{prefixTraking}#{data}#{lang}_#{trakingSource}#{val.navItem}#{sufixTraking}" style="color: #{navLinkSpecialColor}; #{fontSize} #{decNone} #{fontSans}" target="_blank")
+									strong(style="color: #{navLinkSpecialColor}; #{fontSize} #{decNone} #{fontSans}")
+										| #{val.navItem}
+						else
+							td(align="center" style="#{padding}")
+								a(href="#{val.navItemLink}#{prefixTraking}#{data}#{lang}_#{trakingSource}#{val.navItem}#{sufixTraking}" style="color: #{navLinkColor}; #{fontSize} #{decNone} #{fontSans}" target="_blank")
+									span(style="color: #{navLinkColor}; #{fontSize} #{decNone} #{fontSans}")
+										span #{val.navItem}

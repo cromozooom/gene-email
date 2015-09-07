@@ -3,7 +3,7 @@
 - colorWhiteC				= "#b3b3b3"
 - colorWhiteB				= "#c7c7c7"
 - colorWhiteA				= "#dedede"
-- colorWhite				= "#f7f7f7"
+- colorWhite				= "#ffffff"
 - colorGrey					= "#767676"
 - colorBlack				= "#000000"
 - colorBlackA				= "#191919"
@@ -65,20 +65,37 @@ if template == "preHeader"
 
 	- rowBackgroundColor		= colorWhiteA
 
+if template == "header"
+	- rowBackgroundColor 	= "white"
+	- logoImgHeight 		= "70px"
+	- socialBlockWidth 		= "230px"
+	- txtColor				= colorWhiteA
+
+if template == "nav"
+	- navBorderTop 			= "red"
+	- navBgcolor 			= colorPrimary
+	- fontSize 				= font12
+	- navLinkColor 			= colorWhite
+	- navLinkSpecialBgColor = colorPrimaryDarkA
+	- navLinkSpecialColor 	= colorWhite
+	- padding 				= "padding: 10px 5px 10px 5px;"
+
 if template == "twoProd"
 	//- universal collor
 	- linkColor 				= colorPrimary
 	- fontColor 				= colorPrimary
+	// this is for produc CTA
+	- buttonProd				= true
 
 	- rowBackgroundColor		= colorWhite
 
-	- prodTitleFontSize			= font14
+	- prodTitleFontSize			= font13
 	- prodNormalPriceColor 		= colorWhiteD
-	- fontSizeProdNormalPrice	= font15 
+	- fontSizeProdNormalPrice	= font15
 	- prodPriceColor 			= colorWhiteD
 	- fontSizeProdPrice 		= font15
 	- verticalLineColor			= colorWhiteA
-	//- // cta attribute
+	//- cta attribute
 
 	- arcsize = "5px"
 	- radiusSize = "5px"
@@ -96,16 +113,18 @@ if template == "threeProd"
 	//- universal collor
 	- linkColor 				= colorPrimary
 	- fontColor 				= colorPrimary
+	// this is for produc CTA
+	- buttonProd				= true
 
 	- rowBackgroundColor		= colorWhite
 
 	- prodTitleFontSize			= font13
 	- prodNormalPriceColor 		= colorWhiteD
-	- fontSizeProdNormalPrice	= font12 
+	- fontSizeProdNormalPrice	= font12
 	- prodPriceColor 			= colorWhiteD
 	- fontSizeProdPrice 		= font15
 	- verticalLineColor			= colorWhiteA
-	//- // cta attribute
+	//- cta attribute
 
 	- arcsize = "4px"
 	- radiusSize = "4px"
@@ -124,15 +143,18 @@ if template == "fourProd"
 	- linkColor 				= colorPrimary
 	- fontColor 				= colorPrimary
 
+	// this is for produc CTA
+	- buttonProd				= true
+
 	- rowBackgroundColor		= colorWhite
 
 	- prodTitleFontSize			= font11
 	- prodNormalPriceColor 		= colorWhiteD
-	- fontSizeProdNormalPrice	= font12 
+	- fontSizeProdNormalPrice	= font12
 	- prodPriceColor 			= colorWhiteD
 	- fontSizeProdPrice 		= font14
 	- verticalLineColor			= colorWhiteA
-	//- // cta attribute
+	//- cta attribute
 
 	- arcsize = "3px"
 	- radiusSize = "3px"
@@ -150,5 +172,46 @@ if template == "heroImage"
 	- linkColor 			= colorPrimaryLightA
 	- fontColor 			= colorPrimary
 
+
 	- rowBackgroundColor	= colorWhite
 
+if template == "heroImagePlus"
+	// this is for produc CTA
+	- buttonProd						= false
+	if colorScheme == "dark"
+		- rowHeaderBgColor 				= colorPrimary
+		- rowHeaderColorHeader 			= colorWhite
+		- rowHeaderRowColor 			= colorSecondary
+
+		block buttonAtribute
+			- butonTypeNormal 				= "type1"
+			- arcsize 						= "5px"
+			- radiusSize 					= "5px"
+
+			- ctaColor 						= colorWhite
+			- ctaBgColor 					= colorTertiary
+
+			- height 						= "35px"
+			- lineheight 					= "35px"
+
+			- fontFam = fontSans
+			- fontSize =  font15
+
+	if colorScheme == "light"
+		- rowHeaderBgColor 				= colorWhite
+		- rowHeaderColorHeader 			= colorPrimary
+		- rowHeaderRowColor 			= colorSecondary
+
+		block buttonAtribute
+			- butonTypeNormal 				= "type1"
+			- arcsize 						= "5px"
+			- radiusSize 					= "5px"
+
+			- ctaColor 						= colorWhite
+			- ctaBgColor 					= colorTertiary
+
+			- height 						= "35px"
+			- lineheight 					= "35px"
+
+			- fontFam = fontSans
+			- fontSize =  font15

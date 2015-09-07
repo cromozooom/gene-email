@@ -1,0 +1,38 @@
+@media only screen and (max-width: 480px)
+	table[class="mobile-hidden"],
+	td[class="mobile-hidden"],
+	br[class="mobile-hidden"]
+		display:none !important
+
+	table[class="mobile-hidden-tablet"],
+	td[class="mobile-hidden-tablet"],
+	span[class="mobile-hidden-tablet"],
+	br[class="mobile-hidden-tablet"],
+	img[class="mobile-hidden-tablet"]
+		display:none !important
+
+	div[class~="showtablet"]
+		display: block !important
+		margin:0 !important
+		padding:0 !important
+		overflow: visible !important
+		visibility: visible !important
+		width: auto !important
+		max-height:inherit !important
+
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 1)
+	table[class="mobile-hidden-tablet"],
+	td[class="mobile-hidden-tablet"],
+	span[class="mobile-hidden-tablet"],
+	br[class="mobile-hidden-tablet"],
+	img[class="mobile-hidden-tablet"]
+		display:none
+
+	div[class~="showtablet"]
+		display: block !important
+		margin:0 !important
+		padding:0 !important
+		overflow: visible !important
+		visibility: visible !important
+		width: auto !important
+		max-height:inherit !important

@@ -1,0 +1,37 @@
+extends ../../template/_cells
+
+block cellAtribute
+	- cell 				= "twoEqual"
+	- template 			= "header"
+	- trakingSource 	= "headerLogo"
+	include ../../config/config
+	//- editor content
+
+
+block cellContent1
+	+responsiveCell("300", "0", "0", "center", "middle")
+		//- logo
+		table(cellpadding="0" cellspacing="0" width="300" align="center")
+			+ySpace(10, 1)
+			tr
+				td(align="center" valign="top")
+					a(href="#{LogoLink}#{prefixTraking}#{data}#{lang}_#{trakingSource}#{sufixTraking}" height="#{logoImgHeight}")
+						img(src="#{viewImagesPath}#{LogoStoreTxt}_logo.jpg" alt="#{LogoStoreTxt}" style="display: block; border: 0; height: #{logoImgHeight} !important;")
+			+ySpace(10, 1)
+
+block cellContent2
+	if socialIconList
+		+responsiveCell("300", "0", "0", "right", "middle")
+			//- social network
+			table(class="mobile-hidden" cellpadding="0" cellspacing="0" width="#{socialBlockWidth}" align="center" valign="top")
+				+ySpace(10, 1)
+				tr
+					td(align="center" colspan="10")
+						span(style="#{font13}#{fontSans}color: #{txtColor};") #{folowUscopy}
+				+ySpace(10, 1)
+				tr
+					each val in socialIconList
+						td(align="center" width="#{socialIconWidth}" valign="top")
+							a(href="#{val.socialURL}" target="_blank")
+								img(src="#{viewImagesPath}#{val.socialName}.jpg" alt="#{val.socialName} - #{siteName}" style="display: block; border: 0; height: auto !important;")
+				+ySpace(10, 1)

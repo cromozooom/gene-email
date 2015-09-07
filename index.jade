@@ -1,6 +1,5 @@
 extends views/containerMail/containerMail
 
-
 block generalData
 	//- debug			= true
 
@@ -21,11 +20,12 @@ block generalData
 
 
 block append emailContent
+	//include views/heroImagePlus
 	include views/heroImage
 	include views/twoProd
-	include views/twoProdTest
 	include views/threeProd
 	include views/fourProd
+
 
 //- footer
 // include template/footer

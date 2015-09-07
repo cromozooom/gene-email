@@ -1,9 +1,9 @@
 //- this is the table cell mixin
 //- optional can put width and padding
-mixin responsiveCell(cellWidth, xPadding, yPadding)
+mixin responsiveCell(cellWidth, xPadding, yPadding, xAlign, yAlign)
 	table.force-row(bgcolor="#{rowBackgroundColor}" width="#{cellWidth}", border="0", cellpadding="0", cellspacing="0", align="left", style="width: #{cellWidth}px;")
 		tr
-			td.col(valign="top")
+			td.col(valign="#{yAlign}" align="#{xAlign}")
 				.colPadding(style="padding-left: #{xPadding}px; padding-right: #{xPadding}px; padding-top: #{yPadding}px; padding-bottom: #{yPadding}px;")
 					block
 
@@ -36,7 +36,7 @@ block cellAtribute
 						table.force-row(width="600", border="0", cellpadding="0", cellspacing="0", style="width: 600px;")
 							tr
 								td.cols-wrapper
-									+responsiveCell("600", "15", "15")
+									+responsiveCell("600", "15", "15", "left", "middle")
 										block cellContent
 //- cell 1
 if cell == "fullWidth"
@@ -51,24 +51,22 @@ if cell == "fullWidth"
 							block fullWidth
 //- cell 2
 if cell == "twoEqual"
-
 	tr
 		td.content(align="left")
-			table.force-row( width="600", border="0", cellpadding="0", cellspacing="0", style="width: 600px;")
+			table.force-row(bgcolor="#{rowBackgroundColor}" width="600", border="0", cellpadding="0", cellspacing="0", style="width: 600px;")
 				tr
 					td.cols-wrapper
 
 						<!--[if mso]><table border="0" width="600" cellpadding="0" cellspacing="0" style="width: 600px;"><tr><td width="300" style="width: 300px;" valign="top"><![endif]-->
-
-						+responsiveCell("300", "15", "15")
-							block cellContent1
-							//- include ../template/prod
+						block cellContent1
+								//+responsiveCell("300", "15", "15")
+								//- include ../template/prod
 
 
 						<!--[if mso]></td><td width="300" style="width: 300px;" valign="top"><![endif]-->
 
-						+responsiveCell("300", "15", "15")
-							block cellContent2
+						block cellContent2
+							//+responsiveCell("300", "15", "15")
 							//- include ../template/prod
 
 						<!--[if mso]></td></tr></table><![endif]-->
@@ -99,17 +97,17 @@ if cell == "threeEqual"
 
 						<!--[if mso]><table border="0" width="600" cellpadding="0" cellspacing="0" style="width: 600px;"><tr><td width="200" style="width: 200px;" valign="top"><![endif]-->
 
-						+responsiveCell("200", "15", "15")
+						+responsiveCell("200", "15", "15", "left", "middle")
 							block cellContent1
 
 						<!--[if mso]></td><td width="200" style="width: 200px;" valign="top"><![endif]-->
 
-						+responsiveCell("200", "15", "15")
+						+responsiveCell("200", "15", "15", "left", "middle")
 							block cellContent2
 
 						<!--[if mso]></td><td width="200" style="width: 200px;" valign="top"><![endif]-->
 
-						+responsiveCell("200", "15", "15")
+						+responsiveCell("200", "15", "15", "left", "middle")
 							block cellContent3
 
 						<!--[if mso]></td></tr></table><![endif]-->
@@ -124,22 +122,22 @@ if cell == "fourEqual"
 
 						<!--[if mso]><table border="0" width="600" cellpadding="0" cellspacing="0" style="width: 600px;"><tr><td width="150" style="width: 150px;" valign="top"><![endif]-->
 
-						+responsiveCell("150", "15", "15")
+						+responsiveCell("150", "15", "15", "left", "middle")
 							block cellContent1
 
 						<!--[if mso]></td><td width="150" style="width: 150px;" valign="top"><![endif]-->
 
-						+responsiveCell("150", "15", "15")
+						+responsiveCell("150", "15", "15", "left", "middle")
 							block cellContent2
 
 						<!--[if mso]></td><td width="150" style="width: 150px;" valign="top"><![endif]-->
 
-						+responsiveCell("150", "15", "15")
+						+responsiveCell("150", "15", "15", "left", "middle")
 							block cellContent3
 
 						<!--[if mso]></td><td width="150" style="width: 150px;" valign="top"><![endif]-->
 
-						+responsiveCell("150", "15", "15")
+						+responsiveCell("150", "15", "15", "left", "middle")
 							block cellContent4
 
 						<!--[if mso]></td></tr></table><![endif]-->
