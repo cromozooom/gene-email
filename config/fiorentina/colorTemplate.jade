@@ -81,11 +81,11 @@ if template == "nav"
 	- padding 				= "padding: 10px 5px 10px 5px;"
 
 if template == "twoProd"
+	- buttonProd = true
+
 	//- universal collor
 	- linkColor 				= colorPrimary
 	- fontColor 				= colorPrimary
-	// this is for produc CTA
-	- buttonProd				= true
 
 	- rowBackgroundColor		= colorWhite
 
@@ -110,11 +110,10 @@ if template == "twoProd"
 	- fontSize =  font15
 
 if template == "threeProd"
+	- buttonProd = true
 	//- universal collor
 	- linkColor 				= colorPrimary
 	- fontColor 				= colorPrimary
-	// this is for produc CTA
-	- buttonProd				= true
 
 	- rowBackgroundColor		= colorWhite
 
@@ -139,12 +138,11 @@ if template == "threeProd"
 	- fontSize =  font12
 
 if template == "fourProd"
+	- buttonProd = true
 	//- universal collor
 	- linkColor 				= colorPrimary
 	- fontColor 				= colorPrimary
 
-	// this is for produc CTA
-	- buttonProd				= true
 
 	- rowBackgroundColor		= colorWhite
 
@@ -169,49 +167,18 @@ if template == "fourProd"
 	- fontSize =  font12
 
 if template == "heroImage"
-	- linkColor 			= colorPrimaryLightA
-	- fontColor 			= colorPrimary
-
-
-	- rowBackgroundColor	= colorWhite
+	- linkColor 					= colorPrimaryLightA
+	- fontColor 					= colorPrimary
+	- rowBackgroundColor			= colorWhite
 
 if template == "heroImagePlus"
-	// this is for produc CTA
-	- buttonProd						= false
-	if colorScheme == "dark"
-		- rowHeaderBgColor 				= colorPrimary
-		- rowHeaderColorHeader 			= colorWhite
-		- rowHeaderRowColor 			= colorSecondary
 
-		block buttonAtribute
-			- butonTypeNormal 				= "type1"
-			- arcsize 						= "5px"
-			- radiusSize 					= "5px"
+	if theme == "dark"
+		- heroImagePlusBgColor 		= colorPrimary
+		- heroImagePlusHeaderColor 	= colorWhite
+		- heroImagePlusRowColor 	= colorSecondary
 
-			- ctaColor 						= colorWhite
-			- ctaBgColor 					= colorTertiary
-
-			- height 						= "35px"
-			- lineheight 					= "35px"
-
-			- fontFam = fontSans
-			- fontSize =  font15
-
-	if colorScheme == "light"
-		- rowHeaderBgColor 				= colorWhite
-		- rowHeaderColorHeader 			= colorPrimary
-		- rowHeaderRowColor 			= colorSecondary
-
-		block buttonAtribute
-			- butonTypeNormal 				= "type1"
-			- arcsize 						= "5px"
-			- radiusSize 					= "5px"
-
-			- ctaColor 						= colorWhite
-			- ctaBgColor 					= colorTertiary
-
-			- height 						= "35px"
-			- lineheight 					= "35px"
-
-			- fontFam = fontSans
-			- fontSize =  font15
+	if theme == "light"
+		- heroImagePlusBgColor 		= colorWhite
+		- heroImagePlusHeaderColor 	= colorPrimary
+		- heroImagePlusRowColor 	= colorSecondary

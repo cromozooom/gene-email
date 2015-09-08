@@ -1,8 +1,9 @@
 extends heroImagePlus/heroImagePlus
-
-block append heroImagePlusContent
-
+block append heroImagePlusInfo
 	- trakingSource 					= "HeroImagePlus1"
+	// optional dark or light theme
+	- theme 							= "dark"
+
 
 	if lang == "en"
 		//- Copy for the first row (txt)
@@ -13,7 +14,7 @@ block append heroImagePlusContent
 		// Copy for CTA (txt)
 		- ctaCopy 						= "BUY NOW"
 		//- this is the link for all the block !!!
-		- linkCTA						= "http://www.solopx.com"
+		- linkCTA						= "http://www.solopx.com/HeroImagePlus1Link"
 
 	if lang == "it"
 		- rowHeaderTitle 				= "SERIE A IS BACK"
@@ -21,28 +22,10 @@ block append heroImagePlusContent
 		- linkCTA						= "http://www.solopx.com"
 		- ctaCopy  						= "ACQUISTA ORA"
 
-	//- 	ADITIONAL OPTION:
-	//-
-	//- 	1. Image to replace the header and CTA (call to action)
-	//-
-	//- 	The first row (image row) - set to "false" if you don't want to use image
-	//- 	optional you can put false if you dont't need to use images
-	- rowHeaderTitleImage				= "header"
-	- rowHeaderTitleImage				= false
 
-	// this is the CTA image (image) - set to "false" if you don't want to use image
-	//- rowHeaderCTAImage				= "cta01"
-	//- rowHeaderCTAImage					= false
+	- heroImagePlusHeaderPadding 		= "40px 0px 10px 0px"
+	- headerFontSize 					= font46
+	- heroImagePlusRowPadding 			= "0px 0px 10px 0px"
+	- rowFontSize 						= font16
 
-	//- 2. colorScheme
-	//-
-	//- available: dark and light
-	- colorScheme 						= "dark"
-
-
-	block cutomize
-		//- font size can be: format "font1" (1-60)
-		- rowHeaderTitleSize 				= font60
-		- rowFontSize 						= font16
-		- rowHeaderTitlepadding				= "20px 0px 10px 0px"
-		- buttonWidth 						= "150px"
+	include ../config/config

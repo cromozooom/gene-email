@@ -1,55 +1,23 @@
 extends ../../template/_cells
 
 block cellAtribute
-	- cell 					= "fullWidth"
-	- template 				= "heroImagePlus"
-
-	- include ../../config/config
-
-	block heroImagePlusContent
-
-
+	- cell = 			"fullWidth"
+	- template = 		"heroImagePlus"
 
 block fullWidth
+	block heroImagePlusInfo
 
 	+normalCell("100%", "0", "0", "center")
 		if debug
+			p(style="color: #{colorDebug}; background: #{colorBgDebug}; padding: 5px;")
+				| #{template}, #{headerFontSize}, #{heroImagePlusBgColor}
+		table(width="100%" border="0" cellpadding="0" cellspacing="0" style="width: 100%;" bgcolor="#{heroImagePlusBgColor}")
 			tr
-				td
-					p #{colorScheme}, #{ctaCopy}
-
-		if rowHeaderTitleImage
+				td(valign="top" align="center" width="100%" style="width: 100%; padding: #{heroImagePlusHeaderPadding};")
+					a(href="#{linkCTA}#{prefixTraking}#{data}#{lang}_#{trakingSource}_#{sufixTraking}" style="#{headerFontSize}#{fontSans}#{bold}#{decNone} color:#{heroImagePlusHeaderColor};")
+						span(style="#{headerFontSize}#{fontSans}#{bold}#{decNone} color:#{heroImagePlusHeaderColor};")
+							| #{rowHeaderTitle}
 			tr
-				td.container-padding.content(align="center" bgcolor="#{rowHeaderBgColor}")
-					br
-					br
-					a(href="#{linkCTA}#{prefixTraking}#{data}#{lang}_#{trakingSource}#{sufixTraking}" target="_blank")
-						img(src="#{templateImagesPath}#{rowHeaderTitleImage}_#{lang}.jpg" border="0" alt="#{rowHeaderTitle}" hspace="0" vspace="0" style="max-width:100%;")
-					block rowHeaderRow
-						if rowHeaderRow
-							br
-							span(style="#{center}#{fontSans}#{rowFontSize} color: #{rowHeaderRowColor};")
-								| #{rowHeaderRow}
-		else
-			tr
-				td.container-padding.content(align="center"  bgcolor="#{rowHeaderBgColor}" style="padding: #{rowHeaderTitlepadding};")
-					span(style="#{center}#{fontSans}#{rowHeaderTitleSize}#{bold} color:#{rowHeaderColorHeader};")
-						| #{rowHeaderTitle}
-
-					block rowHeaderRow
-
-			tr
-				td(align="center" bgcolor="#{rowHeaderBgColor}" style="padding: 0 0 10px 0;")
-
-
-		if rowHeaderCTAImage
-			tr
-				td(align="center" bgcolor="#{rowHeaderBgColor}" style="padding: 0 0 10px 0;")
-					a(href="#{linkCTA}#{prefixTraking}#{data}#{lang}_#{trakingSource}#{sufixTraking}" target="_blank")
-						img(src="#{templateImagesPath}#{rowHeaderCTAImage}_#{lang}.jpg" border="0" alt="#{rowHeaderTitle}" hspace="0" vspace="0")
-
-		else
-			tr
-				td(align="center" bgcolor="#{rowHeaderBgColor}" style="padding: 0 0 10px 0;")
-					block heroImagePlusCTA
-						include ../../template/_cta
+				td(valign="top" align="center" width="100%" style="width: 100%; padding: #{heroImagePlusRowPadding};")
+					span(style="padding: #{heroImagePlusRowPadding};#{rowFontSize}#{fontSans} color:#{heroImagePlusRowColor};")
+						| #{rowHeaderRow}
