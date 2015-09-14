@@ -3,56 +3,58 @@
 - prefixTraking			= "?ga_campaign="
 
 // content default
-- var LogoStoreTxt = "fiorentina"
-- var socialIconList = [{"socialName":"facebook","socialURL":"https://www.facebook.com/ACFFiorentina"},{"socialName":"twitter","socialURL":"https://twitter.com/acffiorentina"},{"socialName":"youtube","socialURL":"https://www.youtube.com/user/ViolaChannel"},{"socialName":"blog","socialURL":"http://www.solopx.com"},{"socialName":"instagram","socialURL":"https://instagram.com/acffiorentina/"},{"socialName":"flikr","socialURL":"https://www.flickr.com/photos/acffiorentina"},{"socialName":"gPlus","socialURL":"plus.gmail.com"}]
+- LogoStoreTxt = "fiorentina"
+- socialIconList = [{"socialName":"facebook","socialURL":"https://www.facebook.com/ACFFiorentina"},{"socialName":"twitter","socialURL":"https://twitter.com/acffiorentina"},{"socialName":"youtube","socialURL":"https://www.youtube.com/user/ViolaChannel"},{"socialName":"instagram","socialURL":"https://instagram.com/acffiorentina/"},{"socialName":"flikr","socialURL":"https://www.flickr.com/photos/acffiorentina"}]
+
+- viewOnlineLink				= "${online_version_url}$"
 
 if lang == "en"
-	- LogoLink 						= "http://www.solopx.com"
+	- logoLink 					= "http://www.fiorentinastore.com/en"
 
 	//- copy preheader
-	- viewOnlineLink				= "${online_version_url}$"
 	- onlineVersionCopy				= "for web version, "
 	- viewOnline					= "click here"
-	//- end coppy preHeader
 
 	//- copy Header
 	- folowUscopy 					= "follow us on"
-	//- end coppy header
 
 	//- menu Nav
-	- navListLink = [{"navItem":"115","navItemLink":"http://www.laziostylestore.com/en/115-years.html","lastItemNav":false},{"navItem":"MATCH KITS","navItemLink":"http://www.laziostylestore.com/en/match-kits.html","lastItemNav":false},{"navItem":"FASHION","navItemLink":"http://www.laziostylestore.com/en/fashion.html","lastItemNav":false},{"navItem":"ACCESSORIES","navItemLink":"http://www.laziostylestore.com/en/accessories.html","lastItemNav":false},{"navItem":"COVERS","navItemLink":"http://www.laziostylestore.com/en/covers.html","lastItemNav":false},{"navItem":"GIFT IDEAS","navItemLink":"http://www.laziostylestore.com/en/gift-ideas.html","lastItemNav":false},{"navItem":"CLEARANCE","navItemLink":"http://www.laziostylestore.com/en/clearance.html","lastItemNav":true}]
+	- navListLink = [{"navItem":"MATCH KITS","navItemLink":"http://www.fiorentinastore.com/en/match-kits.html","lastItemNav":false},{"navItem":"FASHION","navItemLink":"http://www.fiorentinastore.com/en/fashion.html","lastItemNav":false},{"navItem":"ACCESSORIES","navItemLink":"http://www.fiorentinastore.com/en/accessories.html","lastItemNav":false},{"navItem":"COVERS","navItemLink":"http://www.fiorentinastore.com/en/covers.html","lastItemNav":false},{"navItem":"GIFT IDEAS","navItemLink":"http://www.fiorentinastore.com/en/gift-ideas.html","lastItemNav":false}]
+
+	//- footer
+	- copyContact 				= "Contact us "
+	- copyContactMailLink		= "customercare@fiorentinastore.com"
+	- contactMailLink 			= "mailto:customercare@fiorentinastore.com"
+
+	- reasonCopy00				= "You are receiving the following communication as your are subscribed to "
+	- reasonCopy01				= " 's newsletter with the following e-mail: "
+
+	- unsubscribeCopy 			= "Don't want to receive email Updates? "
+	- unsubscribeLink 			= "http://clientsection.contactlab.it/service/unsubscribe/wfc/1520014859142/d/${encoded_user_data}$/k/${form_verification_code}$/lang/en/"
+	- unsubscribeLinkCopy 		= "Unsubscribe here"
 
 
 if lang == "it"
-	- LogoLink 						= "http://www.solopx.com"
+	- logoLink 					= "http://www.fiorentinastore.com/it"
 
 	//- copy preheader
-	- viewOnlineLink				= "${online_version_url}$"
 	- onlineVersionCopy				= "versione web, "
 	- viewOnline					= "clicca qui"
-	//- end coppy preHeader
 
 	//- copy Header
 	- folowUscopy 					= "seguici su"
-	//- end coppy header
 
 	//- menu Nav
-	- navListLink = [{"navItem":"115","navItemLink":"http://www.laziostylestore.com/en/115-years.html","lastItemNav":false},{"navItem":"MATCH KITS","navItemLink":"http://www.laziostylestore.com/en/match-kits.html","lastItemNav":false},{"navItem":"FASHION","navItemLink":"http://www.laziostylestore.com/en/fashion.html","lastItemNav":false},{"navItem":"ACCESSORIES","navItemLink":"http://www.laziostylestore.com/en/accessories.html","lastItemNav":false},{"navItem":"COVERS","navItemLink":"http://www.laziostylestore.com/en/covers.html","lastItemNav":false},{"navItem":"GIFT IDEAS","navItemLink":"http://www.laziostylestore.com/en/gift-ideas.html","lastItemNav":false},{"navItem":"CLEARANCE","navItemLink":"http://www.laziostylestore.com/en/clearance.html","lastItemNav":true}]
+	- navListLink = [{"navItem":"KIT GARA","navItemLink":"http://www.fiorentinastore.com/it/kit-gara.html","lastItemNav":false},{"navItem":"ABBIGLIAMENTO","navItemLink":"http://www.fiorentinastore.com/it/abbigliamento.html","lastItemNav":false},{"navItem":"ACCESSORI","navItemLink":"http://www.fiorentinastore.com/it/accessori.html","lastItemNav":false},{"navItem":"COVER","navItemLink":"http://www.fiorentinastore.com/it/cover.html","lastItemNav":false},{"navItem":"IDEE REGALO","navItemLink":"http://www.fiorentinastore.com/it/idee-regalo.html","lastItemNav":false}]
 
-	- Nav01 					= "115"
-	- NavLink01 				= "http://www.laziostylestore.com/en/115-years.html"
-	- Nav02 					= "MATCH KITS"
-	- NavLink01 				= "http://www.laziostylestore.com/en/match-kits.html"
-	- Nav03 					= "FASHION"
-	- NavLink02 				= "http://www.laziostylestore.com/en/fashion.html"
-	- Nav04 					= "ACCESSORIES"
-	- NavLink03 				= "http://www.laziostylestore.com/en/accessories.html"
-	- Nav05 					= "COVERS"
-	- NavLink04 				= "http://www.laziostylestore.com/en/covers.html"
-	- Nav06 					= "GIFT IDEAS"
-	- NavLink05 				= "http://www.laziostylestore.com/en/gift-ideas.html"
-	- Nav07 					= "CLEARANCE"
-	- NavLink05 				= "http://www.laziostylestore.com/en/clearance.html"
-	//- end menu Nav
+	//- footer
+	- copyContact 				= "Contattaci "
+	- copyContactMailLink		= "customercare@fiorentinastore.com"
+	- contactMailLink 			= "mailto:customercare@fiorentinastore.com"
 
+	- reasonCopy00				= "Ricevi questa comunicazione in quanto iscritto/a al servizio di informazione periodica di "
+	- reasonCopy01				= " con l'indirizzo e-mail "
 
+	- unsubscribeCopy 			= "Per disiscriverti dalla newsletter "
+	- unsubscribeLink 			= "http://clientsection.contactlab.it/service/unsubscribe/wfc/1420014859385/d/${encoded_user_data}$/k/${form_verification_code}$/"
+	- unsubscribeLinkCopy 		= "Clicca qui"

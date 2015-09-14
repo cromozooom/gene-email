@@ -1,31 +1,70 @@
 extends heroImagePlus/heroImagePlus
 block append heroImagePlusInfo
 	- trakingSource 					= "HeroImagePlus1"
-	// optional dark or light theme
-	- theme 							= "dark"
+	// optional "dark", "light", "white" theme
+	- theme 							= "white"
 
 
 	if lang == "en"
+
 		//- Copy for the first row (txt)
+		- rowHeaderTitle 				= false
 		- rowHeaderTitle 				= "SERIE A IS BACK"
 
 		// Copy for the second row (txt) - this is optional if you dont want to use it put False instead
+		- rowHeaderRow					= false
 		- rowHeaderRow					= "Tornando alla serie A, prezzi bloccati e un finanziamento a tasso zero"
-		// Copy for CTA (txt)
-		- ctaCopy 						= "BUY NOW"
+
 		//- this is the link for all the block !!!
 		- linkCTA						= "http://www.solopx.com/HeroImagePlus1Link"
 
+		//- want a button?
+		- button = true
+
+		// Copy for CTA (txt)
+		- ctaCopy 						= "BUY NOW"
+
+
+
+
 	if lang == "it"
+
 		- rowHeaderTitle 				= "SERIE A IS BACK"
 		- rowHeaderRow					= "Tornando alla serie A, prezzi bloccati e un finanziamento a tasso zero"
 		- linkCTA						= "http://www.solopx.com"
+		//- want a button?
+		- button = true
+
+		// Copy for CTA (txt)
 		- ctaCopy  						= "ACQUISTA ORA"
 
+	//- use this block for cutomize option like font size and padding
+	block heroImagePlusSetup
 
-	- heroImagePlusHeaderPadding 		= "40px 0px 10px 0px"
-	- headerFontSize 					= font46
-	- heroImagePlusRowPadding 			= "0px 0px 40px 0px"
-	- rowFontSize 						= font16
+		- heroImagePlusHeaderPadding 		= "20px 0px 10px 0px"
+		- headerFontSize 					= font46
+		- heroImagePlusRowPadding 			= "0px 0px 20px 0px"
+		- rowFontSize 						= font14
+		- heroImagePlusButtonPadding 		= "0px 0px 20px 0px"
 
 	include ../config/config
+
+
+	//- additional option for CTA
+	append buttonAtribute
+		- buttonWidth = "180px"
+
+		- cta = "button"
+
+		//- arcsize = "5px"
+		//- radiusSize = "5px"
+
+		//- ctaColor = "white"
+		//- ctaBgColor = "red"
+
+		//- height = "40px"
+		//- lineheight = "40px"
+
+		//- fontFam = fontSans
+		//- fontSize =  font15
+

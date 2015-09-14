@@ -1,10 +1,25 @@
 include utils
 include path
 
+
+
+- grid = true
+- debug = true
+
+- grid = flase
+- debug = flase
+
 if site == "default"
-	include default/colorTemplate
+	include default/color
+	include default/ThemeConfig
 	include default/content
 
 if site == "fiorentina"
-	include fiorentina/colorTemplate
+	include fiorentina/color
+	include fiorentina/ThemeConfig
 	include fiorentina/content
+
+if site == "lazio"
+	include lazio/color
+	include lazio/ThemeConfig
+	include lazio/content
