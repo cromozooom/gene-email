@@ -1,0 +1,78 @@
+extends heroImagePlus/heroImagePlus
+block append heroImagePlusInfo
+	- trakingSource 					= "HeroImagePlusTest"
+	// optional "dark", "light", "white" theme
+	- theme 							= "light"
+
+
+	if lang == "en"
+
+		//- Copy for the first row (txt)
+		- rowHeaderTitle 				= false
+		- rowHeaderTitle 				= "WINTER COLLECTION"
+
+		// Copy for the second row (txt) - this is optional if you dont want to use it put False instead
+		- rowHeaderRow					= "Tornando alla serie A, prezzi bloccati e un finanziamento a tasso zero"
+		- rowHeaderRow					= false
+
+		//- this is the link for all the block !!!
+		- linkCTA						= "http://www.solopx.com/HeroImagePlus1Link"
+
+		//- want a button?
+		- button = true
+		- button = false
+
+
+		// Copy for CTA (txt)
+		- ctaCopy 						= "BUY NOW"
+
+
+
+
+	if lang == "it"
+		- rowHeaderTitle 				= false
+		- rowHeaderTitle 				= "WINTER COLLECTION"
+
+		- rowHeaderRow					= "Tornando alla serie A, prezzi bloccati e un finanziamento a tasso zero"
+		- rowHeaderRow					= false
+
+		- linkCTA						= "http://www.solopx.com"
+
+		//- want a button?
+		- button = true
+		- button = false
+
+		// Copy for CTA (txt)
+		- ctaCopy  						= "ACQUISTA ORA"
+
+	//- use this block for cutomize option like font size and padding
+	block heroImagePlusSetup
+
+		- heroImagePlusHeaderPadding 		= "10px 0px 10px 0px"
+		- headerFontSize 					= font16
+		- heroImagePlusRowPadding 			= "0px 0px 20px 0px"
+		- rowFontSize 						= font14
+		- heroImagePlusButtonPadding 		= "0px 0px 20px 0px"
+
+
+	include ../config/config
+
+
+	//- additional option for CTA
+	append buttonAtribute
+		- buttonWidth = "180px"
+
+		- cta = "button"
+
+		//- arcsize = "5px"
+		//- radiusSize = "5px"
+
+		//- ctaColor = "white"
+		//- ctaBgColor = "red"
+
+		//- height = "40px"
+		//- lineheight = "40px"
+
+		//- fontFam = fontSans
+		//- fontSize =  font15
+

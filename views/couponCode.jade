@@ -1,0 +1,42 @@
+extends couponCode/couponCode
+block append couponCodeInfo
+	- trakingSource 					= "couponCodeTraking1"
+	// optional "dark", "light", "white" theme
+	- theme 							= "dark"
+
+
+	if lang == "en"
+
+		//- Copy for the first row (txt)
+		- rowHeaderTitle 				= false
+		- rowHeaderTitle 				= "USE THIS COUPON"
+
+		// Copy for the second row (txt) - this is optional if you dont want to use it put False instead
+		- rowHeaderRow					= false
+		- rowHeaderRow					= "promotion available until midnight of 23.04.2015"
+
+		- coupon 						= "#PROUDofJU"
+
+
+
+	if lang == "it"
+
+		- rowHeaderTitle 				= false
+		- rowHeaderTitle 				= "Utilizza questo coupon:"
+		- rowHeaderRow					= false
+		- rowHeaderRow					= "promotion available until midnight of 23.04.2015"
+
+		- coupon 						= "#PROUDofJU"
+
+
+	//- use this block for cutomize option like font size and padding
+	block couponCodeSetup
+
+		- couponCodeHeaderPadding 		= "20px 0px 10px 0px"
+		- headerFontSize 				= font20
+		- couponCodeRowPadding 			= "0px 0px 10px 0px"
+		- rowFontSize 					= font13
+		- couponCodeCouponPadding 		= "0px 0px 20px 0px"
+		- CouponFontSize 				= font40
+
+	include ../config/config

@@ -22,16 +22,27 @@ block cellContent1
 block cellContent2
 	if socialIconList
 		+responsiveCell("300", "0", "0", "right", "middle")
-			//- social network
-			table(class="mobile-hidden" cellpadding="0" cellspacing="0" width="#{socialBlockWidth}" align="center" valign="top")
-				+ySpace(10, 1)
-				tr
-					td(align="center" colspan="10")
-						span(style="#{font13}#{fontSans}color: #{txtColor};") #{folowUscopy}
-				+ySpace(10, 1)
-				tr
-					each val in socialIconList
-						td(align="center" width="#{socialIconWidth}" valign="top")
-							a(href="#{val.socialURL}" target="_blank")
-								img(src="#{viewImagesPath}#{val.socialName}.jpg" alt="#{val.socialName} - #{siteName}" style="display: block; border: 0; height: auto !important;")
-				+ySpace(10, 1)
+			if site == "fir"
+				//- social network
+				table(class="mobile-hidden" cellpadding="0" cellspacing="0" width="#{socialBlockWidth}" align="center" valign="top")
+					+ySpace(20, 1)
+					tr
+						each val in socialIconList
+							td(align="center" width="#{socialIconWidth}" valign="top")
+								a(href="#{val.socialURL}" target="_blank")
+									img(src="#{viewImagesPath}#{val.socialName}.jpg" alt="#{val.socialName} - #{siteName}" style="display: block; border: 0; height: auto !important;")
+					+ySpace(10, 1)
+			else
+				//- social network
+				table(class="mobile-hidden" cellpadding="0" cellspacing="0" width="#{socialBlockWidth}" align="center" valign="top")
+					+ySpace(10, 1)
+					tr
+						td(align="center" colspan="10")
+							span(style="#{font13}#{fontSans}color: #{txtColor};") #{folowUscopy}
+					+ySpace(10, 1)
+					tr
+						each val in socialIconList
+							td(align="center" width="#{socialIconWidth}" valign="top")
+								a(href="#{val.socialURL}" target="_blank")
+									img(src="#{viewImagesPath}#{val.socialName}.jpg" alt="#{val.socialName} - #{siteName}" style="display: block; border: 0; height: auto !important;")
+					+ySpace(10, 1)
