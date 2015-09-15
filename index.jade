@@ -1,8 +1,8 @@
 extends views/containerMail/containerMail
 
 block generalData
-	//- option: default, fiorentina, lazio, fir
-	- site 			= "lazio"
+	//- option: default, fiorentina, lazio, fir, verona, f4u
+	- site 			= "verona"
 	- lang 			= "it"
 	- data 			= "11-8"
 
@@ -24,5 +24,5 @@ block append emailContent
 	include views/twoBanner
 	include views/heroImagePlusTest
 	include views/twoProdTest
-	//- include views/threeProd
-	//- include views/fourProd
+	include views/threeProd
+	include views/fourProd

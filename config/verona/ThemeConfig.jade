@@ -1,0 +1,201 @@
+if template == "containerMail"
+	- rowBackgroundColor		= colorWhiteA
+
+if template == "preHeader"
+	- linkColor 				= colorSecondary
+	- fontColor 				= colorWhiteC
+
+	- rowBackgroundColor		= colorWhiteA
+
+if template == "header"
+	- rowBackgroundColor 	= colorSecondary
+	- logoImgHeight 		= "70px"
+	- socialBlockWidth 		= "230px"
+	- txtColor				= colorWhiteA
+
+if template == "nav"
+	- navBorderTop 			= colorBlackB
+	- navBgcolor 			= colorBlackB
+	- fontSize 				= font12
+	- navLinkColor 			= colorPrimary
+	- navLinkSpecialBgColor = colorPrimaryDarkA
+	- navLinkSpecialColor 	= colorWhite
+	- padding 				= "padding: 10px 5px 10px 5px;"
+
+if template == "twoProd"
+	- buttonProd = true
+
+	//- universal collor
+	- linkColor 				= colorSecondary
+	- fontColor 				= colorSecondary
+
+	- rowBackgroundColor		= colorWhite
+
+	- prodTitleFontSize			= font13
+	- prodNormalPriceColor 		= colorWhiteD
+	- fontSizeProdNormalPrice	= font15
+	- prodPriceColor 			= colorWhiteD
+	- fontSizeProdPrice 		= font24
+	- verticalLineColor			= colorWhiteA
+	//- cta attribute
+
+	- arcsize = "5px"
+	- radiusSize = "5px"
+
+	- ctaColor = colorSecondary
+	- ctaBgColor = colorPrimary
+
+	- height = "35px"
+	- lineheight = "35px"
+
+	- fontFam = fontSans
+	- fontSize =  font15
+
+if template == "threeProd"
+	- buttonProd = true
+
+	//- universal collor
+	- linkColor 				= colorSecondary
+	- fontColor 				= colorSecondary
+
+	- rowBackgroundColor		= colorWhite
+
+	- prodTitleFontSize			= font13
+	- prodNormalPriceColor 		= colorWhiteD
+	- fontSizeProdNormalPrice	= font12
+	- prodPriceColor 			= colorWhiteD
+	- fontSizeProdPrice 		= font15
+	- verticalLineColor			= colorWhiteA
+	//- cta attribute
+
+	- arcsize = "4px"
+	- radiusSize = "4px"
+
+	- ctaColor = colorSecondary
+	- ctaBgColor = colorPrimary
+
+	- height = "25px"
+	- lineheight = "25px"
+
+	- fontFam = fontSans
+	- fontSize =  font12
+
+if template == "fourProd"
+	- buttonProd = true
+
+	//- universal collor
+	- linkColor 				= colorSecondary
+	- fontColor 				= colorSecondary
+
+	- rowBackgroundColor		= colorWhite
+
+	- prodTitleFontSize			= font11
+	- prodNormalPriceColor 		= colorWhiteD
+	- fontSizeProdNormalPrice	= font12
+	- prodPriceColor 			= colorWhiteD
+	- fontSizeProdPrice 		= font14
+	- verticalLineColor			= colorWhiteA
+	//- cta attribute
+
+	- arcsize = "3px"
+	- radiusSize = "3px"
+
+	- ctaColor = colorSecondary
+	- ctaBgColor = colorPrimary
+
+	- height = "25px"
+	- lineheight = "25px"
+
+	- fontFam = fontSans
+	- fontSize =  font12
+
+if template == "heroImage"
+	- linkColor 					= colorPrimaryLightA
+	- fontColor 					= colorPrimary
+	- rowBackgroundColor			= colorWhite
+
+if template == "heroImagePlus"
+
+	if theme == "dark"
+		- heroImagePlusBgColor 		= colorSecondaryDarkA
+		- heroImagePlusHeaderColor 	= colorPrimary
+		- heroImagePlusRowColor 	= colorSecondaryLightA
+
+	if theme == "light"
+		- heroImagePlusBgColor 		= colorPrimary
+		- heroImagePlusHeaderColor 	= colorBlackB
+		- heroImagePlusRowColor 	= colorSecondary
+
+	if theme == "white"
+		- heroImagePlusBgColor 		= colorWhite
+		- heroImagePlusHeaderColor 	= colorPrimary
+		- heroImagePlusRowColor 	= colorSecondary
+
+
+	//- universal collor
+	- linkColor 				= colorPrimary
+	- fontColor 				= colorPrimary
+
+	- rowBackgroundColor		= colorWhite
+
+	- prodTitleFontSize			= font13
+	- prodNormalPriceColor 		= colorWhiteD
+	- fontSizeProdNormalPrice	= font15
+	- prodPriceColor 			= colorWhiteD
+	- fontSizeProdPrice 		= font15
+	- verticalLineColor			= colorWhiteA
+	//- cta attribute
+
+	- arcsize = "3px"
+	- radiusSize = "3px"
+
+	- ctaColor = colorWhite
+	- ctaBgColor = colorTertiary
+
+	- height = "45px"
+	- lineheight = "45px"
+
+	- fontFam = fontSans
+	- fontSize =  font15
+	- align 	= center
+
+if template == "couponCode"
+
+	if theme == "dark"
+		- borderCoupon				= colorWhite
+		- couponCodeBgColor 		= colorSecondary
+		- couponCodeHeaderColor 	= colorPrimary
+		- couponCodeRowColor 		= colorSecondaryLightA
+
+	if theme == "light"
+		- borderCoupon				= colorSecondary
+		- couponCodeBgColor 		= colorPrimary
+		- couponCodeHeaderColor 	= colorBlackB
+		- couponCodeRowColor 		= colorPrimaryDarkB
+
+	if theme == "white"
+		- borderCoupon				= colorBlackB
+		- couponCodeBgColor 		= colorWhite
+		- couponCodeHeaderColor 	= colorSecondary
+		- couponCodeRowColor 		= colorSecondaryLightA
+
+
+	//- universal collor
+	- linkColor 					= colorPrimary
+	- fontColor 					= colorPrimary
+
+	- rowBackgroundColor			= colorWhite
+
+	- prodTitleFontSize				= font13
+	- prodNormalPriceColor 			= colorWhiteD
+	- fontSizeProdNormalPrice		= font15
+	- prodPriceColor 				= colorWhiteD
+	- fontSizeProdPrice 			= font15
+	- verticalLineColor				= colorWhiteA
+
+if template == "footer"
+	- rowBackgroundColor		= colorWhiteA
+	- bgcolor 					= colorWhiteA
+	- fontSize 					= font12
+	- fontColor 				= colorWhiteD
+	- linkColor 				= colorSecondary
