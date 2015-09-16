@@ -135,6 +135,100 @@ table td
 	font-size: 14px
 	font-family: Arial, Helvetica, sans-serif
 
+// paragrafSize
+//-------------------------------------------------------------------------------- paragrafSize
+
+=fontSize($size)
+	font-size: $size
+	line-height: $size + $size / 2
+.pSize12
+	+fontSize(10px)
+
+.pSize12
+	+fontSize(12px)
+.pSize13
+	+fontSize(13px)
+.pSize14
+	+fontSize(14px)
+.pSize14
+	+fontSize(14px)
+.pSize15
+	+fontSize(15px)
+.pSize16
+	+fontSize(16px)
+.pSize17
+	+fontSize(17px)
+.pSize18
+	+fontSize(18px)
+.pSize19
+	+fontSize(19px)
+.pSize20
+	+fontSize(20px)
+.pSize21
+	+fontSize(21px)
+.pSize22
+	+fontSize(22px)
+.pSize23
+	+fontSize(23px)
+.pSize24
+	+fontSize(24px)
+.pSize25
+	+fontSize(25px)
+.pSize26
+	+fontSize(26px)
+.pSize27
+	+fontSize(27px)
+.pSize28
+	+fontSize(28px)
+.pSize29
+	+fontSize(29px)
+.pSize30
+	+fontSize(30px)
+.pSize31
+	+fontSize(31px)
+.pSize32
+	+fontSize(32px)
+.pSize33
+	+fontSize(33px)
+.pSize34
+	+fontSize(34px)
+.pSize35
+	+fontSize(35px)
+.pSize36
+	+fontSize(36px)
+.pSize37
+	+fontSize(37px)
+.pSize38
+	+fontSize(38px)
+.pSize39
+	+fontSize(39px)
+.pSize40
+	+fontSize(40px)
+.pSize41
+	+fontSize(41px)
+.pSize42
+	+fontSize(42px)
+.pSize43
+	+fontSize(43px)
+.pSize44
+	+fontSize(44px)
+.pSize45
+	+fontSize(45px)
+.pSize46
+	+fontSize(46px)
+.pSize47
+	+fontSize(47px)
+.pSize48
+	+fontSize(48px)
+.pSize49
+	+fontSize(49px)
+
+
+.fontBold
+	font-weight: bold
+.fontNormal
+	font-weight: normal
+
 // mobile
 @media only screen and (max-width: 480px)
 
@@ -158,7 +252,7 @@ table td
 	span[class="mobile-hidden-tablet"],
 	br[class="mobile-hidden-tablet"],
 	img[class="mobile-hidden-tablet"]
-		display:none
+		display: none
 	div[class~="showtablet"]
 		display: block !important
 		margin:0 !important
@@ -171,6 +265,13 @@ table td
 	td[class~="block"]
 		width: $mobileWrapper !important
 		display:block !important
+	div[class~="show"]
+		display: block !important
+		margin:0 !important
+		overflow: visible !important
+		visibility: visible !important
+		width: auto !important
+		max-height:inherit !important
 
 // tablet desktop
 @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 1)
@@ -180,7 +281,7 @@ table td
 	// span[class="mobile-hidden-tablet"],
 	// br[class="mobile-hidden-tablet"],
 	// img[class="mobile-hidden-tablet"]
-	// 	display:none
+	// 	display: none
 	div[class~="showtablet"]
 		display: block !important
 		margin:0 !important

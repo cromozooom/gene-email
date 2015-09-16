@@ -19,21 +19,35 @@ block mixin
 		table(width="100%" border="0" cellspacing="0" cellpadding="0")
 			block
 
-	mixin tdSpace(x, y, visible)
+	//- mixin tdSpace(x, y, visible)
 		td(width="#{x}px" height="#{y}px" class="#{visible}")
 			img(src="../../assets/images/fix/spacer.gif" width="#{x}px" height="#{y}px" alt="")
 
+	mixin tdSpace(x, y, visible)
+		td(width="#{x}px" height="#{y}px" class="#{visible}" style="font-size: 1px;") &nbsp;
+			
+
 	mixin arrowImage(src, alt)
 		img(alt="" src="../../assets/images/fix/#{src}" border="0" style="outline: none; text-decoration: none; border: none;")
+		block
 
 	mixin linkImage(src, href, alt)
 		a(hreg="#{href}")
 			img(src="../../assets/images/fix/#{src}" alt="#{alt}" border="0" style="border:none; display:block; outline:none; text–decoration:none; color: #333333; font: bold 12px Helvetica, Arial, sans–serif; width: 100%; max-width: 100%; height: auto;")
 
+	mixin linkImageBrand(src, href, alt, width )
+		a(hreg="#{href}")
+			img(src="../../assets/images/fix/#{src}" alt="#{alt}" border="0" style="border:none; display:block; outline:none; text–decoration:none; color: #333333; font: bold 12px Helvetica, Arial, sans–serif; width: #{width}; max-width: #{width}; height: auto;")
 	mixin menuItem(item, itemLink)
 		td.itemMenu(align="left")
 			a(href="#{itemLink}")
 				span #{item}
+	mixin button(copy, fontSize, xyPadding, href, width, bg, color)
+		table(bgcolor="#{bg}" cellpadding="0" cellspacing="0" border="0" width="#{width}" style="border-collapse:collapse")
+			tr
+				td(align="center" style="color:#fefefe;padding:#{xyPadding};font:bold #{fontSize} Helvetica,Arial,sans-serif;white-space:nowrap")
+					a(href="#{href}" style="color:#{color};text-decoration:none" target="_blank") #{copy}
+						block
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
@@ -109,9 +123,113 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 										+menuItem("BAMBINO", "#")
 										+menuItem("ABBIGLIAMENTO", "#")
 										+menuItem("PORTIERE", "#")
-										//+menuItem("ACCESSORI", "#")
-										//+menuItem("TEAMSPORT", "#")
-										//+menuItem("OUTLET", "#")
+										//- +menuItem("ACCESSORI", "#")
+										//- +menuItem("TEAMSPORT", "#")
+										//- +menuItem("OUTLET", "#")
+				//- man woman
+				tr
+					td.mobile-hidden(bgcolor="#373737" align="center")
+						if debug
+							p.debug man woman
+						+normalTable
+							tr
+								+tdSpace(30, 50, "")
+								+tdSpace(30, 50, "")
+								+tdSpace(30, 50, "")
+
+							tr
+								+tdSpace(30, 60, "")
+								td(align="center" valign="top")
+									.h1.pSize40.fontBold(style="color: white") IN ANTEPRIMA PER TE
+								+tdSpace(30, 60, "")
+							tr
+								+tdSpace(30, 40, "")
+								td(align="center" valign="top")
+									.h1.pSize11(style="color: white")
+										| SCOPRI PER PRIMA LA SELEZIONE IN 
+										br
+										| SALDO E RISPARMIA FINO AL 30%.*
+								+tdSpace(30, 40, "")
+							tr
+								+tdSpace(30, 20, "")
+								+tdSpace(30, 20, "")
+								+tdSpace(30, 20, "")
+
+						+normalTable
+							tr
+								td(align="right")
+									+button("MAN  ", "16px", "10px", "#", "120px", "red", "white")
+										+arrowImage("arrow16_white.png", "")
+								+tdSpace(10, 50, "")
+								td(align="left")
+									+button("UOMAN ", "16px", "10px", "#", "120px", "red", "white")
+										+arrowImage("arrow16_white.png", "")
+							tr
+								td(align="right")
+									+button("ragazzo ", "12px", "5px", "#", "120px", "#373737", "white")
+										+arrowImage("arrow12_white.png", "")
+								+tdSpace(10, 30, "")
+								td(align="left")
+									+button("ragazza ", "12px", "5px", "#", "120px", "#373737", "white")
+										+arrowImage("arrow12_white.png", "")
+							tr
+								+tdSpace(30, 50, "")
+								+tdSpace(1, 50, "")
+								+tdSpace(30, 50, "")
+				tr
+					td(bgcolor="#373737" align="center")
+						.show(style="display:none; width:0px; max-height:0px; overflow:hidden;")
+							+normalTable
+								tr
+									+tdSpace(30, 20, "")
+									+tdSpace(30, 20, "")
+									+tdSpace(30, 20, "")
+
+								tr
+									+tdSpace(30, 40, "")
+									td(align="center" valign="top")
+										.h1.pSize20.fontBold(style="color: white") IN ANTEPRIMA PER TE
+									+tdSpace(30, 0, "")
+								tr
+									+tdSpace(30, 40, "")
+									td(align="center" valign="top")
+										.h1.pSize14(style="color: white")
+											| SCOPRI PER PRIMA LA SELEZIONE IN 
+											| SALDO E RISPARMIA FINO AL 30%.*
+									+tdSpace(30, 40, "")
+								tr
+									+tdSpace(30, 20, "")
+									+tdSpace(30, 20, "")
+									+tdSpace(30, 20, "")
+				tr
+					td(bgcolor="#373737")
+						.show(style="display:none; width:0px; max-height:0px; overflow:hidden;")
+							+normalTable
+								tr
+									td(align="center")
+										+button("MAN  ", "15px", "10px", "#", "120px", "red", "white")
+											+arrowImage("arrow14_white.png", "")
+								tr
+									+tdSpace(1, 10, "")
+								tr
+									td(align="center")
+										+button("UOMAN ", "15px", "10px", "#", "120px", "red", "white")
+											+arrowImage("arrow14_white.png", "")
+								tr
+									+tdSpace(1, 10, "")
+								tr
+									td(align="center")
+										+button("ragazzo ", "12px", "5px", "#", "120px", "#373737", "white")
+											+arrowImage("arrow12_white.png", "")
+								tr
+									+tdSpace(1, 10, "")
+								tr
+									td(align="center")
+										+button("ragazza ", "12px", "5px", "#", "120px", "#373737", "white")
+											+arrowImage("arrow12_white.png", "")
+								tr
+									+tdSpace(1, 20, "")
+							
 				// 1 banner
 				tr
 					td
@@ -143,7 +261,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 													hr.hr
 													a.arrow.linkArrow20.arrowPrimary(href="#")
 														span Buy NOW 
-														+arrowImage("arrow20.png", "")
+														+arrowImage("arrow20_primary.png", "")
 													br
 													br
 												+tdSpace(10, 10, "")
@@ -159,7 +277,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 													hr.hr
 													a.arrow.linkArrow20.arrowPrimary(href="#")
 														span Buy NOW 
-														+arrowImage("arrow20.png", "")
+														+arrowImage("arrow20_primary.png", "")
 													br
 													br
 												+tdSpace(10, 10, "")
@@ -210,7 +328,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 																br
 																a.arrow.linkArrow14.arrowPrimary(href="#")
 																	span Buy NOW 
-																	+arrowImage("arrow14.png", "")
+																	+arrowImage("arrow14_primary.png", "")
 																br
 																br
 															+tdSpace(10 , 0, "mobile-hidden")
@@ -219,7 +337,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 																br
 																a.arrow.linkArrow14.arrowPrimary(href="#")
 																	span Buy NOW 
-																	+arrowImage("arrow14.png", "")
+																	+arrowImage("arrow14_primary.png", "")
 																br
 																br
 									+tdSpace(10 , 0, "mobile-hidden")
@@ -234,7 +352,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 																br
 																a.arrow.linkArrow14.arrowPrimary(href="#")
 																	span Buy NOW 
-																	+arrowImage("arrow14.png", "")
+																	+arrowImage("arrow14_primary.png", "")
 																br
 																br
 															+tdSpace(10 , 0, "mobile-hidden")
@@ -243,7 +361,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 																br
 																a.arrow.linkArrow14.arrowPrimary(href="#")
 																	span Buy NOW 
-																	+arrowImage("arrow14.png", "")
+																	+arrowImage("arrow14_primary.png", "")
 																br
 																br
 									+tdSpace(10 , 0, "mobile-hidden")
@@ -284,7 +402,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 													br
 													a.arrow.linkArrow14.arrowPrimary(href="#")
 														span Buy NOW 
-														+arrowImage("arrow14.png", "")
+														+arrowImage("arrow14_primary.png", "")
 													br
 													br
 												+tdSpace(5, 10, "")
@@ -297,7 +415,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 													br
 													a.arrow.linkArrow14.arrowPrimary(href="#")
 														span Buy NOW 
-														+arrowImage("arrow14.png", "")
+														+arrowImage("arrow14_primary.png", "")
 													br
 													br
 												+tdSpace(5, 10, "")
@@ -310,7 +428,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 													br
 													a.arrow.linkArrow14.arrowPrimary(href="#")
 														span Buy NOW 
-														+arrowImage("arrow14.png", "")
+														+arrowImage("arrow14_primary.png", "")
 													br
 													br
 												+tdSpace(10, 10, "")
@@ -322,39 +440,57 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 						block brand
 							+normalTable
 								tr.twoCell.brand
+									+tdSpace(5, 30, "")
+									td(align="center")
+										.h1 our brand 
+							+normalTable
+								tr.twoCell.brand
+									+tdSpace(10 , 0, "mobile-hidden")
 									td.block
 										+normalTable
 											tr
-												+tdSpace(10, 80, "")
 												td.cellContent
 													+normalTable
 														tr
-															td
-																mixin linkImage("adidas.gif", "#", "offerta01")
-															td
-																mixin linkImage("asics.gif", "#", "offerta01")
-															td
-																mixin linkImage("adidas.gif", "#", "offerta01")
-															td
-																mixin linkImage("adidas.gif", "#", "offerta01")
-												+tdSpace(5, 80, "mobile-hidden")
-
+															td(align="center")
+																mixin linkImageBrand("nike.gif", "#", "offerta01", "45px")
+															+tdSpace(5, 42, "")
+															td(align="center")
+																mixin linkImageBrand("adidas.gif", "#", "offerta01", "45px")
+															+tdSpace(5, 42, "")
+															td(align="center")
+																mixin linkImageBrand("puma.gif", "#", "offerta01", "45px")
+									+tdSpace(5 , 0, "mobile-hidden")											
 									td.block
 										+normalTable
 											tr
-												+tdSpace(5, 80, "mobile-hidden")
 												td.cellContent
 													+normalTable
 														tr
-															td
-																mixin linkImage("adidas.gif", "#", "offerta01")
-															td
-																mixin linkImage("adidas.gif", "#", "offerta01")
-															td
-																mixin linkImage("adidas.gif", "#", "offerta01")
-															td
-																mixin linkImage("adidas.gif", "#", "offerta01")
-												+tdSpace(10, 80, "")
+															td(align="center")
+																mixin linkImageBrand("joma.gif", "#", "offerta01", "45px")
+															+tdSpace(5, 42, "")										
+															td(align="center")
+																mixin linkImageBrand("lotto.gif", "#", "offerta01", "45px")
+															+tdSpace(5, 42, "")
+															td(align="center")
+																mixin linkImageBrand("macron.gif", "#", "offerta01", "45px")
+									+tdSpace(5 , 0, "mobile-hidden")											
+									td.block
+										+normalTable
+											tr
+												td.cellContent
+													+normalTable
+														tr
+															td(align="center")
+																mixin linkImageBrand("asics.gif", "#", "offerta01", "45px")
+															+tdSpace(5, 42, "")
+															td(align="center")
+																mixin linkImageBrand("reusch.gif", "#", "offerta01", "45px")
+															+tdSpace(5, 42, "")
+															td(align="center")
+																mixin linkImageBrand("uhl.gif", "#", "offerta01", "45px")
+									+tdSpace(10 , 0, "mobile-hidden")
 				
 				tr
 					td
