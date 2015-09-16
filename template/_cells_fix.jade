@@ -1,0 +1,59 @@
+// wrapper
+mixin wrapperTable(border, padding, align)
+	table(cellpadding="0" cellspacing="0" border="#{border}" id="backgroundTable-fix-g" style="padding: #{padding};" align="#{align}")
+		tr
+			td
+				block
+
+mixin normalTable
+	table(width="100%" border="0" cellspacing="0" cellpadding="0")
+		block
+
+mixin xySpace(x, y)
+	td(width="#{x}px" height="#{y}")
+		img(src="spacer.gif" width="#{x}px" height="#{y}" alt="")
+
+
+
++wrapperTable("0" , "20px", "center" )
+	+normalTable
+		block 1cell_fix
+			tr
+				td
+					p one cell-fix-g
+	+normalTable
+		block 2cell_fix
+			tr
+				td
+					+normalTable
+						tr
+							+xySpace("10", "100%")
+							td col1
+							+xySpace("10", "100%")
+				td
+					+normalTable
+						tr
+							+xySpace("10", "100%")
+							td col2
+							+xySpace("10", "100%")
+	+normalTable
+		block 3cell_fix
+			tr
+				td
+					+normalTable
+						tr
+							+xySpace("10", "100%")
+							td col1
+							+xySpace("10", "100%")
+				td
+					+normalTable
+						tr
+							+xySpace("10", "100%")
+							td col2
+							+xySpace("10", "100%")
+				td
+					+normalTable
+						tr
+							+xySpace("10", "100%")
+							td col3
+							+xySpace("10", "100%")

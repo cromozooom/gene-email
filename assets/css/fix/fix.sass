@@ -1,0 +1,191 @@
+// variable
+$mobileWrapper: 338px
+$minTabletWrapper: 568px
+$primaryColor: black
+
+.oneCell,
+.twoCell,
+.threeCell
+	background: darken(white, 10%)
+	background: transparent
+
+.cellContent
+	background: darken(white, 20%)
+	background: transparent
+	text-align: center
+
+.debug
+	background: lighten(red, 30%)
+	padding: 5px
+	font-size: 12px
+
+//table
+//	border: 1px solid red
+//table td
+//	border: 1px solid blue
+
+// normal
+#outlook a
+	padding:0
+
+body
+	width:100% !important
+	-webkit-text-size-adjust:100%
+	-ms-text-size-adjust:100%
+	margin:0
+	padding:0
+
+	font-size: 14px
+	font-family: Arial, Helvetica, sans-serif
+
+
+.ExternalClass
+	width:100%
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div
+	line-height: 100%
+
+// preheader
+div.preheader
+	display: none !important
+
+// colapse table
+table td
+	border-collapse: collapse
+
+// hr
+//-------------------------------------------------------------------------------- hr
+.hr
+	border: 1px solid darken(white, 5%)
+
+// arrow
+//-------------------------------------------------------------------------------- arrow
+
+.arrowPrimary
+	color: $primaryColor
+	span
+		color: $primaryColor
+.arrow
+	font-weight: bold
+	text-decoration: none
+	span
+		text-decoration: none
+
+
+.linkArrow20
+	font-size: 20px
+
+.linkArrow16
+	font-size: 16px
+
+.linkArrow14
+	font-size: 14px
+
+// menu title
+//-------------------------------------------------------------------------------- menu title
+.title
+	font-size: 12px
+	color: darken( white, 30%)
+
+// webVersion
+//-------------------------------------------------------------------------------- webVersion
+.webVersion
+	color: darken( white, 70%)
+	font-size: 14px
+	text-decoration: none
+	span
+		color: darken( white, 70%)
+		font-size: 14px
+		text-decoration: none
+
+.brand
+	background: #162000
+// menu item
+//-------------------------------------------------------------------------------- menu item
+
+.itemMenu
+	// background: lighten(red, 45%) // debug
+	// border: 1px solid lighten(red, 40%) // debug
+	a
+		text-decoration: none
+		color: black
+		font-weight: bold
+		span
+			text-decoration: none
+			color: black
+
+// this is the backgroundTable (general backgroundTable)
+.backgroundTable-fix-g
+	margin: 0
+	padding:0
+	width:100% !important
+	line-height: 100% !important
+
+.wrapper
+	border-collapse:collapse
+	mso-table-lspace:0pt
+	mso-table-rspace:0pt
+	width: $minTabletWrapper
+
+.h1
+	font-size: 14px
+	font-family: Arial, Helvetica, sans-serif
+
+// mobile
+@media only screen and (max-width: 480px)
+
+	// this is the backgroundTable (general backgroundTable)
+	table[id="backgroundTable-fix-g"]
+		padding: 20px 0 !important
+
+	// this is the wrapperTable
+	table[class="wrapper"]
+		width: $mobileWrapper !important
+	// mobile hidden
+	table[class="mobile-hidden"],
+	div[class="mobile-hidden"],
+	td[class="mobile-hidden"],
+	br[class="mobile-hidden"]
+		display:none
+
+	table[class="mobile-hidden-tablet"],
+	tr[class="mobile-hidden-tablet"],
+	td[class="mobile-hidden-tablet"],
+	span[class="mobile-hidden-tablet"],
+	br[class="mobile-hidden-tablet"],
+	img[class="mobile-hidden-tablet"]
+		display:none
+	div[class~="showtablet"]
+		display: block !important
+		margin:0 !important
+		padding:0 !important
+		overflow: visible !important
+		visibility: visible !important
+		width: auto !important
+		max-height:inherit !important
+
+	td[class~="block"]
+		width: $mobileWrapper !important
+		display:block !important
+
+// tablet desktop
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (-webkit-min-device-pixel-ratio: 1)
+	// table[class="mobile-hidden-tablet"],
+	// tr[class="mobile-hidden-tablet"],
+	// td[class="mobile-hidden-tablet"],
+	// span[class="mobile-hidden-tablet"],
+	// br[class="mobile-hidden-tablet"],
+	// img[class="mobile-hidden-tablet"]
+	// 	display:none
+	div[class~="showtablet"]
+		display: block !important
+		margin:0 !important
+		padding:0 !important
+		overflow: visible !important
+		visibility: visible !important
+		width: auto !important
+		max-height:inherit !important

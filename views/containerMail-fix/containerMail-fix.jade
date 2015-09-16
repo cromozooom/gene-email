@@ -1,0 +1,424 @@
+- debug = true
+- debug = false
+- lang = "en"
+- emailTitle = "sample title"
+- rowBackgroundColor = ""
+- template = "cell-grid"
+block arrow color
+
+block mixin
+	mixin backgroundTable(border, padding, align)
+		table(cellpadding="0" cellspacing="0" border="#{border}" id="backgroundTable-fix-g" style="padding: #{padding};" align="#{align}")
+			tr
+				td
+					block
+	mixin wrapperTable(width, align)
+		table.wrapper(align="#{align}" cellpadding="0" cellspacing="0" border="0" width="#{width}" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width: #{width} + px; border: 1px solid #e1e1e1;")
+			block
+	mixin normalTable
+		table(width="100%" border="0" cellspacing="0" cellpadding="0")
+			block
+
+	mixin tdSpace(x, y, visible)
+		td(width="#{x}px" height="#{y}px" class="#{visible}")
+			img(src="../../assets/images/fix/spacer.gif" width="#{x}px" height="#{y}px" alt="")
+
+	mixin arrowImage(src, alt)
+		img(alt="" src="../../assets/images/fix/#{src}" border="0" style="outline: none; text-decoration: none; border: none;")
+
+	mixin linkImage(src, href, alt)
+		a(hreg="#{href}")
+			img(src="../../assets/images/fix/#{src}" alt="#{alt}" border="0" style="border:none; display:block; outline:none; text–decoration:none; color: #333333; font: bold 12px Helvetica, Arial, sans–serif; width: 100%; max-width: 100%; height: auto;")
+
+	mixin menuItem(item, itemLink)
+		td.itemMenu(align="left")
+			a(href="#{itemLink}")
+				span #{item}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
+
+	head
+		meta(http-equiv="Content-Type", content="text/html; charset=UTF-8")
+		meta(name="viewport", content="width=device-width, initial-scale=1")
+		//- So that mobile will display zoomed in
+
+		meta(http-equiv="X-UA-Compatible", content="IE=edge")
+		//- enable media queries for windows phone 8
+
+		meta(name="format-detection", content="telephone=no")
+		//- disable auto telephone linking in iOS
+
+		title #{emailTitle}
+		<!--[if gte mso 15]><style type="text/css">.evergreenspace {line-height:18.5px !important;}</style><![endif]-->
+		// - insert mobile font
+		link(rel="stylesheet", type="text/css", href="../../assets/css/fix/fix.css")
+
+	body(style="margin:0; padding:0;", bgcolor="#{rowBackgroundColor}", leftmargin="0", topmargin="0", marginwidth="0", marginheight="0")
+		if debug
+			p.debug vartemplate = #{template}
+		+backgroundTable("0" , "20px 20px", "center" )
+			+wrapperTable("590", "center")
+				// 1 cell
+					tr
+						td
+							if debug
+								p.debug 1 cell variable content
+							block 1cell_fix
+								+normalTable
+									tr.oneCell
+										+tdSpace(10, 10, "")
+										td.cellContent
+											br
+											.h1
+												| varible content cell 
+												a(href="#") sample link
+											br
+										td.cellContent
+											| smaple message
+										+tdSpace(10, 10, "")
+
+				tr
+					td
+						if debug
+							p.debug 1 cell logo and title
+
+						+normalTable
+							tr.oneCell
+								td.cellContent(width="80")
+									br
+									mixin linkImage("logo.jpg", "#", "logo")
+									br
+								td.cellContent(align="right" style="text-align: right;")
+									a.webVersion(href="#")
+										span web version
+									br
+									span.title our first measage here
+								+tdSpace(10, 10, "")
+				tr
+					td
+						if debug
+							p.debug 1 cell variable content
+						block 1cell_menu
+							.mobile-hidden
+								+normalTable
+									tr.oneCell
+										+tdSpace(30, 40, "")
+										+menuItem("SCARPE CALCIO", "#")
+										+menuItem("BAMBINO", "#")
+										+menuItem("ABBIGLIAMENTO", "#")
+										+menuItem("PORTIERE", "#")
+										//+menuItem("ACCESSORI", "#")
+										//+menuItem("TEAMSPORT", "#")
+										//+menuItem("OUTLET", "#")
+				// 1 banner
+				tr
+					td
+						if debug
+							p.debug 1 cell variable content
+						block fullBanner
+							+normalTable
+								tr.oneCell
+									td.cellContent
+										mixin linkImage("fullBanner.jpg", "#", "offerta01")
+
+				//- 2 prod
+				tr
+					td
+						if debug
+							p.debug 2 cell
+						block 2cell_fix
+							+normalTable
+								tr.twoCell
+									td
+										+normalTable
+											tr
+												+tdSpace(10, 10, "")
+												td.cellContent
+													br
+													+linkImage("02.jpg", "www.solopx.com", "www.solopx.com")
+													br
+													.h2 ptod title 01
+													hr.hr
+													a.arrow.linkArrow20.arrowPrimary(href="#")
+														span Buy NOW 
+														+arrowImage("arrow20.png", "")
+													br
+													br
+												+tdSpace(10, 10, "")
+									td
+										+normalTable
+											tr
+												+tdSpace(10, 10, "")
+												td.cellContent
+													br
+													+linkImage("03.jpg", "www.solopx.com", "www.solopx.com")
+													br
+													.h2 ptod title 01
+													hr.hr
+													a.arrow.linkArrow20.arrowPrimary(href="#")
+														span Buy NOW 
+														+arrowImage("arrow20.png", "")
+													br
+													br
+												+tdSpace(10, 10, "")
+				//- 2 cell hiden mobile
+					tr
+						td
+							if debug
+								p.debug 2 cell hidden mobile
+							block 2cell_fix_hiddenMobile
+								+normalTable
+									tr.twoCell
+										td.mobile-hidden-tablet
+											+normalTable
+												tr
+													+tdSpace(10, 10, "")
+													td.cellContent
+														br
+														.h1 col1/2
+														br
+													+tdSpace(10, 10, "")
+										td.mobile-hidden-tablet
+											+normalTable
+												tr
+													+tdSpace(10, 10, "")
+													td.cellContent
+														br
+														.h1 col2/2
+														br
+													+tdSpace(10, 10, "")
+				
+				//- 4 prod
+				tr
+					td
+						if debug
+							p.debug cell 4 prod
+						block 2cell_fix_stack_4prod
+							+normalTable
+								tr.twoCell
+									+tdSpace(10 , 0, "mobile-hidden")
+									td.block
+										+normalTable
+											tr
+												td.cellContent
+													+normalTable
+														tr
+															td
+																+linkImage("01.jpg", "www.solopx.com", "www.solopx.com")
+																br
+																a.arrow.linkArrow14.arrowPrimary(href="#")
+																	span Buy NOW 
+																	+arrowImage("arrow14.png", "")
+																br
+																br
+															+tdSpace(10 , 0, "mobile-hidden")
+															td
+																+linkImage("02.jpg", "www.solopx.com", "www.solopx.com")
+																br
+																a.arrow.linkArrow14.arrowPrimary(href="#")
+																	span Buy NOW 
+																	+arrowImage("arrow14.png", "")
+																br
+																br
+									+tdSpace(10 , 0, "mobile-hidden")
+									td.block
+										+normalTable
+											tr
+												td.cellContent
+													+normalTable
+														tr
+															td
+																+linkImage("03.jpg", "www.solopx.com", "www.solopx.com")
+																br
+																a.arrow.linkArrow14.arrowPrimary(href="#")
+																	span Buy NOW 
+																	+arrowImage("arrow14.png", "")
+																br
+																br
+															+tdSpace(10 , 0, "mobile-hidden")
+															td
+																+linkImage("04.jpg", "www.solopx.com", "www.solopx.com")
+																br
+																a.arrow.linkArrow14.arrowPrimary(href="#")
+																	span Buy NOW 
+																	+arrowImage("arrow14.png", "")
+																br
+																br
+									+tdSpace(10 , 0, "mobile-hidden")
+				// 2 small banner
+				tr
+					td
+						if debug
+							p.debug 2 cell stack
+						block 2cell_fix_stack
+							+normalTable
+								tr.twoCell
+									td.block
+										+normalTable
+											tr
+												td.cellContent
+													mixin linkImage("smallBanner1.jpg", "#", "offerta01")
+									td.block
+										+normalTable
+											tr
+												td.cellContent
+													mixin linkImage("smallBanner2.jpg", "#", "offerta01")
+
+
+				//- 3 prod
+				tr
+					td
+						if debug
+							p.debug 3 cell / 10px gutter
+						block 3cell
+							+normalTable
+								tr.threeCell
+									td
+										+normalTable
+											tr
+												+tdSpace(10, 10, "")
+												td.cellContent
+													+linkImage("01.jpg", "www.solopx.com", "www.solopx.com")
+													br
+													a.arrow.linkArrow14.arrowPrimary(href="#")
+														span Buy NOW 
+														+arrowImage("arrow14.png", "")
+													br
+													br
+												+tdSpace(5, 10, "")
+									td
+										+normalTable
+											tr
+												+tdSpace(5, 10, "")
+												td.cellContent
+													+linkImage("02.jpg", "www.solopx.com", "www.solopx.com")
+													br
+													a.arrow.linkArrow14.arrowPrimary(href="#")
+														span Buy NOW 
+														+arrowImage("arrow14.png", "")
+													br
+													br
+												+tdSpace(5, 10, "")
+									td
+										+normalTable
+											tr
+												+tdSpace(5, 10, "")
+												td.cellContent
+													+linkImage("03.jpg", "www.solopx.com", "www.solopx.com")
+													br
+													a.arrow.linkArrow14.arrowPrimary(href="#")
+														span Buy NOW 
+														+arrowImage("arrow14.png", "")
+													br
+													br
+												+tdSpace(10, 10, "")
+				// brand
+				tr
+					td
+						if debug
+							p.debug 2 cell stack
+						block brand
+							+normalTable
+								tr.twoCell.brand
+									td.block
+										+normalTable
+											tr
+												+tdSpace(10, 80, "")
+												td.cellContent
+													+normalTable
+														tr
+															td
+																mixin linkImage("adidas.gif", "#", "offerta01")
+															td
+																mixin linkImage("asics.gif", "#", "offerta01")
+															td
+																mixin linkImage("adidas.gif", "#", "offerta01")
+															td
+																mixin linkImage("adidas.gif", "#", "offerta01")
+												+tdSpace(5, 80, "mobile-hidden")
+
+									td.block
+										+normalTable
+											tr
+												+tdSpace(5, 80, "mobile-hidden")
+												td.cellContent
+													+normalTable
+														tr
+															td
+																mixin linkImage("adidas.gif", "#", "offerta01")
+															td
+																mixin linkImage("adidas.gif", "#", "offerta01")
+															td
+																mixin linkImage("adidas.gif", "#", "offerta01")
+															td
+																mixin linkImage("adidas.gif", "#", "offerta01")
+												+tdSpace(10, 80, "")
+				
+				tr
+					td
+						if debug
+							p.debug 3 cell no gutter
+						block 3cellNoGutter
+							+normalTable
+								tr.threeCell
+									+tdSpace(10, 10, "")
+									td
+										+normalTable
+											tr
+												td.cellContent
+													br
+													.h1 col1/3
+													br
+
+									td
+										+normalTable
+											tr
+												td.cellContent
+													br
+													.h1 col2/3
+													br
+									td
+										+normalTable
+											tr
+												td.cellContent
+													br
+													.h1 col3/3
+													br
+									+tdSpace(10, 10, "")
+
+				tr
+					td
+						if debug
+							p.debug 3 cell last hidden
+						block 3cell_lastHidden
+							+normalTable
+								tr.threeCell
+									td
+										+normalTable
+											tr
+												+tdSpace(10, 10, "")
+												td.cellContent
+													br
+													.h1 col1/3
+													br
+												+tdSpace(10, 10, "")
+									td
+										+normalTable
+											tr
+												+tdSpace(10, 10, "")
+												td.cellContent
+													br
+													.h1 col2/3
+													br
+												+tdSpace(10, 10, "")
+									td.mobile-hidden-tablet
+										+normalTable
+											tr
+												+tdSpace(10, 10, "")
+												td.cellContent
+													br
+													.h1 col3/3
+													br
+												+tdSpace(10, 10, "")
