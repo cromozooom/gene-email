@@ -3,10 +3,63 @@ $mobileWrapper: 338px
 $minTabletWrapper: 568px
 $primaryColor: black
 
+// color
+$colorWhiteD: #a1a1a1
+$colorWhiteC: #b3b3b3
+$colorWhiteB: #c7c7c7
+$colorWhiteA: #dedede
+$colorWhite: #ffffff
+$colorGrey: #767676
+$colorBlack: #000000
+$colorBlackA: #191919
+$colorBlackB: #303030
+$colorBlackC: #444444
+$colorBlackD: #565656
+
+$colorPrimaryLightD: #fbfff0
+$colorPrimaryLightC: #f6ffe0
+$colorPrimaryLightB: #edffc0
+$colorPrimaryLightA: #daff80
+$colorPrimary: #b5ff00
+$colorPrimaryDarkA: #6d9900
+$colorPrimaryDarkB: #415c00
+$colorPrimaryDarkC: #273700
+$colorPrimaryDarkD: #172100
+
+$colorSecondaryLightD: #f0f3f3
+$colorSecondaryLightC: #e0e6e6
+$colorSecondaryLightB: #c0cccd
+$colorSecondaryLightA: #80989a
+$colorSecondary: #013134
+$colorSecondaryDarkA: #011d1f
+$colorSecondaryDarkB: #011113
+$colorSecondaryDarkC: #010a0b
+$colorSecondaryDarkD: #010607
+
+$colorTertiaryLightD: #f3f3f3
+$colorTertiaryLightC: #e6e6e7
+$colorTertiaryLightB: #cccccf
+$colorTertiaryLightA: #99999e
+$colorTertiary: #33333d
+$colorTertiaryDarkA: #1f1f25
+$colorTertiaryDarkB: #1f1f25
+$colorTertiaryDarkC: #1f1f25
+$colorTertiaryDarkD: #131316
+
+$colorFourthLightD: #b5ff00
+$colorFourthLightC: #b5ff00
+$colorFourthLightB: #b5ff00
+$colorFourthLightA: #b5ff00
+$colorFourth: #b5ff00
+$colorFourthDarkA: #b5ff00
+$colorFourthDarkB: #b5ff00
+$colorFourthDarkC: #b5ff00
+$colorFourthDarkD: #b5ff00
+
 .oneCell,
 .twoCell,
 .threeCell
-	background: darken(white, 10%)
+	background: $colorSecondary
 	background: transparent
 
 .cellContent
@@ -228,6 +281,13 @@ table td
 	font-weight: bold
 .fontNormal
 	font-weight: normal
+.text-left
+	text-align: left
+.text-right
+	text-align: right
+.text-center
+	text-align: cenetr
+
 
 // mobile
 @media only screen and (max-width: 480px)

@@ -3,6 +3,60 @@
 - lang = "en"
 - emailTitle = "sample title"
 - rowBackgroundColor = ""
+
+// color
+- colorWhiteD				= "#a1a1a1"
+- colorWhiteC				= "#b3b3b3"
+- colorWhiteB				= "#c7c7c7"
+- colorWhiteA				= "#dedede"
+- colorWhite				= "#ffffff"
+- colorGrey					= "#767676"
+- colorBlack				= "#000000"
+- colorBlackA				= "#191919"
+- colorBlackB				= "#303030"
+- colorBlackC				= "#444444"
+- colorBlackD				= "#565656"
+
+- colorPrimaryLightD		= "#fbfff0"
+- colorPrimaryLightC		= "#f6ffe0"
+- colorPrimaryLightB		= "#edffc0"
+- colorPrimaryLightA		= "#daff80"
+- colorPrimary				= "#b5ff00"
+- colorPrimaryDarkA			= "#6d9900"
+- colorPrimaryDarkB			= "#415c00"
+- colorPrimaryDarkC			= "#273700"
+- colorPrimaryDarkD			= "#172100"
+
+- colorSecondaryLightD		= "#f0f3f3"
+- colorSecondaryLightC		= "#e0e6e6"
+- colorSecondaryLightB		= "#c0cccd"
+- colorSecondaryLightA		= "#80989a"
+- colorSecondary			= "#013134"
+- colorSecondaryDarkA		= "#011d1f"
+- colorSecondaryDarkB		= "#011113"
+- colorSecondaryDarkC		= "#010a0b"
+- colorSecondaryDarkD		= "#010607"
+
+- colorTertiaryLightD		= "#f3f3f3"
+- colorTertiaryLightC		= "#e6e6e7"
+- colorTertiaryLightB		= "#cccccf"
+- colorTertiaryLightA		= "#99999e"
+- colorTertiary				= "#33333d"
+- colorTertiaryDarkA		= "#1f1f25"
+- colorTertiaryDarkB		= "#1f1f25"
+- colorTertiaryDarkC		= "#1f1f25"
+- colorTertiaryDarkD		= "#131316"
+
+- colorFourthLightD			= "#b5ff00"
+- colorFourthLightC			= "#b5ff00"
+- colorFourthLightB			= "#b5ff00"
+- colorFourthLightA			= "#b5ff00"
+- colorFourth				= "#b5ff00"
+- colorFourthDarkA			= "#b5ff00"
+- colorFourthDarkB			= "#b5ff00"
+- colorFourthDarkC			= "#b5ff00"
+- colorFourthDarkD			= "#b5ff00"
+
 - template = "cell-grid"
 block arrow color
 
@@ -10,11 +64,15 @@ block mixin
 	mixin backgroundTable(border, padding, align)
 		table(cellpadding="0" cellspacing="0" border="#{border}" id="backgroundTable-fix-g" style="padding: #{padding};" align="#{align}")
 			tr
-				td
+				td(attribute)
 					block
 	mixin wrapperTable(width, align)
-		table.wrapper(align="#{align}" cellpadding="0" cellspacing="0" border="0" width="#{width}" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width: #{width} + px; border: 1px solid #e1e1e1;")
+		table.wrapper(align="#{align}" cellpadding="0" cellspacing="0" border="0" width="#{width}" style="border-collapse:collapse; mso-table-lspace:0pt; mso-table-rspace:0pt; width: #{width}px; border: 1px solid red;")
 			block
+	mixin p(options)
+		options{fontsize: "12", color: "red"}
+		p( font-size="option(value=”#{fontsize}”)")
+
 	mixin normalTable
 		table(width="100%" border="0" cellspacing="0" cellpadding="0")
 			block
@@ -23,8 +81,8 @@ block mixin
 		td(width="#{x}px" height="#{y}px" class="#{visible}")
 			img(src="../../assets/images/fix/spacer.gif" width="#{x}px" height="#{y}px" alt="")
 
-	mixin tdSpace(x, y, visible)
-		td(width="#{x}px" height="#{y}px" class="#{visible}" style="font-size: 1px;") &nbsp;
+	mixin tdSpace(x, y, colspan, visible)
+		td(width="#{x}px" height="#{y}px" class="#{visible}" colspan="#{colspan}" style="font-size: 1px;") &nbsp;
 
 	mixin arrowImage(src, alt)
 		img(alt="" src="../../assets/images/fix/#{src}" border="0" style="outline: none; text-decoration: none; border: none;")
@@ -77,11 +135,16 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 		// - insert mobile font
 		link(rel="stylesheet", type="text/css", href="../../assets/css/fix/fix.css")
 
-	body(style="margin:0; padding:0;", bgcolor="#{rowBackgroundColor}", leftmargin="0", topmargin="0", marginwidth="0", marginheight="0")
+	body(style="margin:0; padding:0;", bgcolor="#{colorTertiaryDarkA}", leftmargin="0", topmargin="0", marginwidth="0", marginheight="0")
 		if debug
 			p.debug vartemplate = #{template}
 		+backgroundTable("0" , "20px 20px", "center" )
-			+wrapperTable("590", "center")
+			// wrapper
+			+wrapperTable("568", "left" )
+				// prod
+				tr
+					td
+						+normalTable
 				// 1 cell
 					tr
 						td
@@ -90,7 +153,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 							block 1cell_fix
 								+normalTable
 									tr.oneCell
-										+tdSpace(10, 10, "")
+										+tdSpace(10, 10, 1, "")
 										td.cellContent
 											br
 											.h1
@@ -99,7 +162,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 											br
 										td.cellContent
 											| smaple message
-										+tdSpace(10, 10, "")
+										+tdSpace(10, 10, 1, "")
 
 				tr
 					td
@@ -117,16 +180,16 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 										span web version
 									br
 									span.title our first measage here
-								+tdSpace(10, 10, "")
+								+tdSpace(10, 10, 1, "")
 				tr
-					td
+					td(bgcolor="#{colorSecondaryDarkA}")
 						if debug
 							p.debug 1 cell content menu hiden on mobile
 						block 1cell_menu
 							.mobile-hidden
 								+normalTable
 									tr.oneCell
-										+tdSpace(30, 40, "")
+										+tdSpace(30, 40, 1, "")
 										+menuItem("SCARPE CALCIO", "#")
 										+menuItem("BAMBINO", "#")
 										+menuItem("ABBIGLIAMENTO", "#")
@@ -143,86 +206,91 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 
 							+normalTable
 								tr
-									+tdSpace(30, 50, "")
-									+tdSpace(30, 50, "")
-									+tdSpace(30, 50, "")
+									+tdSpace(30, 50, 1, "")
+									+tdSpace(30, 50, 1, "")
+									+tdSpace(30, 50, 1, "")
 
 								tr
-									+tdSpace(30, 60, "")
+									+tdSpace(30, 60, 1, "")
 									td(align="center" valign="top")
 										.h1.pSize40.fontBold(style="color: white") IN ANTEPRIMA PER TE
-									+tdSpace(30, 60, "")
+									+tdSpace(30, 60, 1, "")
 								tr
-									+tdSpace(30, 40, "")
+									+tdSpace(30, 40, 1, "")
 									td(align="center" valign="top")
 										.h1.pSize11(style="color: white")
 											| SCOPRI PER PRIMA LA SELEZIONE IN
 											br
 											| SALDO E RISPARMIA FINO AL 30%.*
-									+tdSpace(30, 40, "")
+									+tdSpace(30, 40, 1, "")
 								tr
-									+tdSpace(30, 20, "")
-									+tdSpace(30, 20, "")
-									+tdSpace(30, 20, "")
+									+tdSpace(30, 20, 1, "")
+									+tdSpace(30, 20, 1, "")
+									+tdSpace(30, 20, 1, "")
 
 							+normalTable
 								tr
 									td(align="right")
-										+button("MAN  ", "16px", "10px", "#", "120px", "red", "white")
-											+arrowImage("arrow16_white.png", "")
-									+tdSpace(10, 50, "")
+										block manBtton
+											- bg = colorPrimary
+											- color = colorPrimaryDarkC
+											+button("MAN  ", "16px", "10px", "#", "120px", bg, color)
+												+arrowImage("arrow16_white.png", "")
+									+tdSpace(10, 50, 1, "")
 									td(align="left")
-										+button("UOMAN ", "16px", "10px", "#", "120px", "red", "white")
-											+arrowImage("arrow16_white.png", "")
+										block womanBtton
+											- bg = colorPrimary
+											- color = colorPrimaryDarkC
+											+button("UOMAN ", "16px", "10px", "#", "120px", bg, color)
+												+arrowImage("arrow16_white.png", "")
 								tr
 									td(align="right")
 										+button("ragazzo ", "12px", "5px", "#", "120px", "transparent", "white")
 											+arrowImage("arrow12_white.png", "")
-									+tdSpace(10, 30, "")
+									+tdSpace(10, 30, 1, "")
 									td(align="left")
 										+button("ragazza ", "12px", "5px", "#", "120px", "transparent", "white")
 											+arrowImage("arrow12_white.png", "")
 								tr
-									+tdSpace(30, 50, "")
-									+tdSpace(1, 50, "")
-									+tdSpace(30, 50, "")
+									+tdSpace(30, 50, 1, "")
+									+tdSpace(1, 50, 1, "")
+									+tdSpace(30, 50, 1, "")
 				tr
 					td.mobile-hidden(bgcolor="#373737" align="center")
 						if debug
 							p.debug man & woman with NO bg image deskTop
 						+normalTable
 							tr
-								+tdSpace(30, 50, "")
-								+tdSpace(30, 50, "")
-								+tdSpace(30, 50, "")
+								+tdSpace(30, 50, 1, "")
+								+tdSpace(30, 50, 1, "")
+								+tdSpace(30, 50, 1, "")
 
 							tr
-								+tdSpace(30, 60, "")
+								+tdSpace(30, 60, 1, "")
 								td(align="center" valign="top")
 									.h1.pSize40.fontBold(style="color: white") IN ANTEPRIMA PER TE
-								+tdSpace(30, 60, "")
+								+tdSpace(30, 60, 1, "")
 							tr
-								+tdSpace(30, 40, "")
+								+tdSpace(30, 40, 1, "")
 								td(align="center" valign="top")
 									.h1.pSize11(style="color: white")
 										| SCOPRI PER PRIMA LA SELEZIONE IN
 										br
 										| SALDO E RISPARMIA FINO AL 30%.*
-								+tdSpace(30, 40, "")
+								+tdSpace(30, 40, 1, "")
 							tr
-								+tdSpace(30, 20, "")
-								+tdSpace(30, 20, "")
-								+tdSpace(30, 20, "")
+								+tdSpace(30, 20, 1, "")
+								+tdSpace(30, 20, 1, "")
+								+tdSpace(30, 20, 1, "")
 
 						+normalTable
 							tr
 								td(align="right")
-									+button("MAN  ", "16px", "10px", "#", "120px", "red", "white")
-										+arrowImage("arrow16_white.png", "")
+									block manBtton
+
 								+tdSpace(10, 50, "")
 								td(align="left")
-									+button("UOMAN ", "16px", "10px", "#", "120px", "red", "white")
-										+arrowImage("arrow16_white.png", "")
+									block womanBtton
 							tr
 								td(align="right")
 									+button("ragazzo ", "12px", "5px", "#", "120px", "#373737", "white")
@@ -232,9 +300,9 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 									+button("ragazza ", "12px", "5px", "#", "120px", "#373737", "white")
 										+arrowImage("arrow12_white.png", "")
 							tr
-								+tdSpace(30, 50, "")
-								+tdSpace(1, 50, "")
-								+tdSpace(30, 50, "")
+								+tdSpace(30, 50, 1, "")
+								+tdSpace(1, 50, 1, "")
+								+tdSpace(30, 50, 1, "")
 				tr
 					td(bgcolor="#373737" align="center")
 
@@ -243,48 +311,46 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 								p.debug man & woman with NO bg image mobile
 							+normalTable
 								tr
-									+tdSpace(30, 20, "")
-									+tdSpace(30, 20, "")
-									+tdSpace(30, 20, "")
+									+tdSpace(30, 20, 1, "")
+									+tdSpace(30, 20, 1, "")
+									+tdSpace(30, 20, 1, "")
 
 								tr
-									+tdSpace(30, 40, "")
+									+tdSpace(30, 40, 1, "")
 									td(align="center" valign="top")
 										.h1.pSize20.fontBold(style="color: white") IN ANTEPRIMA PER TE
-									+tdSpace(30, 0, "")
+									+tdSpace(30, 0, 1, "")
 								tr
-									+tdSpace(30, 40, "")
+									+tdSpace(30, 40, 1, "")
 									td(align="center" valign="top")
 										.h1.pSize14(style="color: white")
 											| SCOPRI PER PRIMA LA SELEZIONE IN
 											| SALDO E RISPARMIA FINO AL 30%.*
-									+tdSpace(30, 40, "")
+									+tdSpace(30, 40, 1, "")
 								tr
-									+tdSpace(30, 20, "")
-									+tdSpace(30, 20, "")
-									+tdSpace(30, 20, "")
+									+tdSpace(30, 20, 1, "")
+									+tdSpace(30, 20, 1, "")
+									+tdSpace(30, 20, 1, "")
 				tr
 					td(bgcolor="#373737")
 						.show(style="display:none; width:0px; max-height:0px; overflow:hidden;")
 							+normalTable
 								tr
 									td(align="center")
-										+button("MAN  ", "15px", "10px", "#", "120px", "red", "white")
-											+arrowImage("arrow14_white.png", "")
+										block manBtton
 								tr
-									+tdSpace(1, 10, "")
+									+tdSpace(1, 10, 1, "")
 								tr
 									td(align="center")
-										+button("UOMAN ", "15px", "10px", "#", "120px", "red", "white")
-											+arrowImage("arrow14_white.png", "")
+										block womanBtton
 								tr
-									+tdSpace(1, 10, "")
+									+tdSpace(1, 10, 1, "")
 								tr
 									td(align="center")
 										+button("ragazzo ", "12px", "5px", "#", "120px", "#373737", "white")
 											+arrowImage("arrow12_white.png", "")
 								tr
-									+tdSpace(1, 10, "")
+									+tdSpace(1, 10, 1, "")
 								tr
 									td(align="center")
 										+button("ragazza ", "12px", "5px", "#", "120px", "#373737", "white")
@@ -305,7 +371,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 
 				//- 2 prod
 				tr
-					td
+					td(bgcolor="#{colorWhiteA}")
 						if debug
 							p.debug 2 cell 2 big prod
 						block 2cell_fix
@@ -314,7 +380,9 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 									td
 										+normalTable
 											tr
-												+tdSpace(10, 10, "")
+												+tdSpace(10, 40, 3, "")
+											tr
+												+tdSpace(10, 10, 1, "")
 												td.cellContent
 													br
 													+linkImage("02.jpg", "www.solopx.com", "www.solopx.com")
@@ -322,15 +390,17 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 													.h2 ptod title 01
 													hr.hr
 													a.arrow.linkArrow20.arrowPrimary(href="#")
-														span Buy NOW
+														span Buy NOW 
 														+arrowImage("arrow20_primary.png", "")
 													br
 													br
-												+tdSpace(10, 10, "")
+												+tdSpace(10, 10, 1, "")
 									td
 										+normalTable
 											tr
-												+tdSpace(10, 10, "")
+												+tdSpace(10, 40, 3, "")
+											tr
+												+tdSpace(10, 10, 1, "")
 												td.cellContent
 													br
 													+linkImage("03.jpg", "www.solopx.com", "www.solopx.com")
@@ -338,11 +408,11 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 													.h2 ptod title 01
 													hr.hr
 													a.arrow.linkArrow20.arrowPrimary(href="#")
-														span Buy NOW
+														span Buy NOW 
 														+arrowImage("arrow20_primary.png", "")
 													br
 													br
-												+tdSpace(10, 10, "")
+												+tdSpace(10, 10, 1, "")
 				//- 2 cell hiden mobile
 					tr
 						td
@@ -354,79 +424,83 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 										td.mobile-hidden-tablet
 											+normalTable
 												tr
-													+tdSpace(10, 10, "")
+													+tdSpace(10, 10, 1, "")
 													td.cellContent
 														br
 														.h1 col1/2
 														br
-													+tdSpace(10, 10, "")
+													+tdSpace(10, 10, 1, "")
 										td.mobile-hidden-tablet
 											+normalTable
 												tr
-													+tdSpace(10, 10, "")
+													+tdSpace(10, 10, 1, "")
 													td.cellContent
 														br
 														.h1 col2/2
 														br
-													+tdSpace(10, 10, "")
+													+tdSpace(10, 10, 1, "")
 
 				//- 4 prod
 				tr
-					td
+					td(bgcolor="#{colorWhiteA}")
 						if debug
 							p.debug 2 cell 4 small prod
 						block 2cell_fix_stack_4prod
 							+normalTable
 								tr.twoCell
-									+tdSpace(10 , 0, "mobile-hidden")
+									+tdSpace(10 , 0, 1, "mobile-hidden")
 									td.block
 										+normalTable
 											tr
 												td.cellContent
 													+normalTable
+														tr
+															+tdSpace(10, 40, 3, "")
 														tr
 															td
 																+linkImage("01.jpg", "www.solopx.com", "www.solopx.com")
 																br
 																a.arrow.linkArrow14.arrowPrimary(href="#")
-																	span Buy NOW
+																	span Buy NOW 
 																	+arrowImage("arrow14_primary.png", "")
 																br
 																br
-															+tdSpace(10 , 0, "mobile-hidden")
+															+tdSpace(10 , 0, 1, "mobile-hidden")
 															td
 																+linkImage("02.jpg", "www.solopx.com", "www.solopx.com")
 																br
 																a.arrow.linkArrow14.arrowPrimary(href="#")
-																	span Buy NOW
+																	span Buy NOW 
 																	+arrowImage("arrow14_primary.png", "")
 																br
 																br
-									+tdSpace(10 , 0, "mobile-hidden")
+									+tdSpace(10 , 0, 1, "mobile-hidden")
 									td.block
 										+normalTable
 											tr
 												td.cellContent
 													+normalTable
 														tr
+															+tdSpace(10, 40, 3, "")
+														tr
 															td
 																+linkImage("03.jpg", "www.solopx.com", "www.solopx.com")
 																br
 																a.arrow.linkArrow14.arrowPrimary(href="#")
-																	span Buy NOW
+																	span Buy NOW 
 																	+arrowImage("arrow14_primary.png", "")
 																br
 																br
-															+tdSpace(10 , 0, "mobile-hidden")
+															+tdSpace(10 , 0, 1, "mobile-hidden")
 															td
 																+linkImage("04.jpg", "www.solopx.com", "www.solopx.com")
 																br
 																a.arrow.linkArrow14.arrowPrimary(href="#")
-																	span Buy NOW
+																	span Buy NOW 
 																	+arrowImage("arrow14_primary.png", "")
 																br
 																br
-									+tdSpace(10 , 0, "mobile-hidden")
+									+tdSpace(10 , 0, 1, "mobile-hidden")
 				// 2 small banner
 				tr
 					td
@@ -449,51 +523,57 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 
 				//- 3 prod
 				tr
-					td
+					td(bgcolor="#{colorWhiteA}")
 						if debug
 							p.debug 3 cell / 10px gutter 3 prod
 						block 3cell
 							+normalTable
 								tr.threeCell
-									td
+									td(valign="top")
 										+normalTable
 											tr
-												+tdSpace(10, 10, "")
-												td.cellContent
+												+tdSpace(10, 40, 3, "")
+											tr
+												+tdSpace(10, 10, 1, "")
+												td.cellContent(valign="top")
 													+linkImage("01.jpg", "www.solopx.com", "www.solopx.com")
 													br
 													a.arrow.linkArrow14.arrowPrimary(href="#")
-														span Buy NOW
+														span Buy NOW 
 														+arrowImage("arrow14_primary.png", "")
 													br
 													br
-												+tdSpace(5, 10, "")
-									td
+												+tdSpace(5, 10, 1, "")
+									td(valign="top")
 										+normalTable
 											tr
-												+tdSpace(5, 10, "")
+												+tdSpace(10, 40, 3, "")
+											tr
+												+tdSpace(5, 10, 1, "")
 												td.cellContent
 													+linkImage("02.jpg", "www.solopx.com", "www.solopx.com")
 													br
 													a.arrow.linkArrow14.arrowPrimary(href="#")
-														span Buy NOW
+														span Buy NOW 
 														+arrowImage("arrow14_primary.png", "")
 													br
 													br
-												+tdSpace(5, 10, "")
-									td
+												+tdSpace(5, 10, 1, "")
+									td(valign="top")
 										+normalTable
 											tr
-												+tdSpace(5, 10, "")
+												+tdSpace(10, 40, 3, "")
+											tr
+												+tdSpace(5, 10, 1, "")
 												td.cellContent
 													+linkImage("03.jpg", "www.solopx.com", "www.solopx.com")
 													br
 													a.arrow.linkArrow14.arrowPrimary(href="#")
-														span Buy NOW
+														span Buy NOW 
 														+arrowImage("arrow14_primary.png", "")
 													br
 													br
-												+tdSpace(10, 10, "")
+												+tdSpace(10, 10, 1, "")
 				// brand
 				tr
 					td
@@ -502,12 +582,12 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 						block brand
 							+normalTable
 								tr.twoCell.brand
-									+tdSpace(5, 30, "")
+									+tdSpace(5, 30, 1, "")
 									td(align="center")
 										.h1 our brand
 							+normalTable
 								tr.twoCell.brand
-									+tdSpace(10 , 0, "mobile-hidden")
+									+tdSpace(10, 0, 1, "mobile-hidden")
 									td.block
 										+normalTable
 											tr
@@ -516,13 +596,13 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 														tr
 															td(align="center")
 																mixin linkImageBrand("nike.gif", "#", "offerta01", "45px")
-															+tdSpace(5, 42, "")
+															+tdSpace(5, 42, 1, "")
 															td(align="center")
 																mixin linkImageBrand("adidas.gif", "#", "offerta01", "45px")
-															+tdSpace(5, 42, "")
+															+tdSpace(5, 42, 1, "")
 															td(align="center")
 																mixin linkImageBrand("puma.gif", "#", "offerta01", "45px")
-									+tdSpace(5 , 0, "mobile-hidden")
+									+tdSpace(5, 0, 1, "mobile-hidden")
 									td.block
 										+normalTable
 											tr
@@ -531,13 +611,13 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 														tr
 															td(align="center")
 																mixin linkImageBrand("joma.gif", "#", "offerta01", "45px")
-															+tdSpace(5, 42, "")
+															+tdSpace(5, 42, 1, "")
 															td(align="center")
 																mixin linkImageBrand("lotto.gif", "#", "offerta01", "45px")
-															+tdSpace(5, 42, "")
+															+tdSpace(5, 42, 1, "")
 															td(align="center")
 																mixin linkImageBrand("macron.gif", "#", "offerta01", "45px")
-									+tdSpace(5 , 0, "mobile-hidden")
+									+tdSpace(5 , 0, 1, "mobile-hidden")
 									td.block
 										+normalTable
 											tr
@@ -546,14 +626,45 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 														tr
 															td(align="center")
 																mixin linkImageBrand("asics.gif", "#", "offerta01", "45px")
-															+tdSpace(5, 42, "")
+															+tdSpace(5, 42, 1, "")
 															td(align="center")
 																mixin linkImageBrand("reusch.gif", "#", "offerta01", "45px")
-															+tdSpace(5, 42, "")
+															+tdSpace(5, 42, 1, "")
 															td(align="center")
 																mixin linkImageBrand("uhl.gif", "#", "offerta01", "45px")
-									+tdSpace(10 , 0, "mobile-hidden")
-				// other template
+									+tdSpace(10, 0, 1, "mobile-hidden")
+				tr
+					td(bgcolor="#{colorWhiteA}")
+						if debug
+							p.debug 2 cell first hidden
+						block 3cell_lastHidden
+							+normalTable
+								tr
+									+tdSpace(5, 20, 3, "")
+
+								tr.threeCell
+									+tdSpace(20, 20, 2, "")
+									td.mobile-hidden-tablet(bgcolor="#{colorWhiteB}")
+										+normalTable
+											tr
+												+tdSpace(20, 100, 1, "")
+												td.cellContent.text-center(valign="middle")
+													+linkImageBrand("Shipping-Box.png", "#", "free shipping", "60px" )
+												+tdSpace(1, 100, 1, "")
+									td(bgcolor="#{colorWhiteB}")
+										+normalTable
+											tr
+												+tdSpace(10, 100, 1, "")
+												td.cellContent.text-left
+													.pSize14.fontBold.text-left Consegna Gratuita 
+													.pSize12.text-left Applicabile agli ordini di almeno €50. I resi sono sempre gratuiti.
+													a(href="")
+														span Scopri i dettagli
+												+tdSpace(20, 100, 1, "")
+									+tdSpace(20, 20, 2, "")
+								tr
+									+tdSpace(5, 20, 3, "")
+				//- other template
 					tr
 						td
 							if debug
@@ -561,7 +672,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 							block 3cellNoGutter
 								+normalTable
 									tr.threeCell
-										+tdSpace(10, 10, "")
+										+tdSpace(10, 10, 1, "")
 										td
 											+normalTable
 												tr
@@ -584,7 +695,7 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 														br
 														.h1 col3/3
 														br
-										+tdSpace(10, 10, "")
+										+tdSpace(10, 10, 1, "")
 
 					tr
 						td
@@ -596,27 +707,27 @@ html(lang="#{lang}" xmlns="http://www.w3.org/1999/xhtml")
 										td
 											+normalTable
 												tr
-													+tdSpace(10, 10, "")
+													+tdSpace(10, 10, 1, "")
 													td.cellContent
 														br
 														.h1 col1/3
 														br
-													+tdSpace(10, 10, "")
+													+tdSpace(10, 10, 1, "")
 										td
 											+normalTable
 												tr
-													+tdSpace(10, 10, "")
+													+tdSpace(10, 10, 1, "")
 													td.cellContent
 														br
 														.h1 col2/3
 														br
-													+tdSpace(10, 10, "")
+													+tdSpace(10, 10, 1, "")
 										td.mobile-hidden-tablet
 											+normalTable
 												tr
-													+tdSpace(10, 10, "")
+													+tdSpace(10, 10, 1, "")
 													td.cellContent
 														br
 														.h1 col3/3
 														br
-													+tdSpace(10, 10, "")
+													+tdSpace(10, 10, 1, "")
